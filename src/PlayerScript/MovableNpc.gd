@@ -48,6 +48,8 @@ var wandering_rotator: int
 var wander_action: bool = false
 ## On which degree npc will wander
 var wandering_destination: int
+## Only when navigation map is ready, npc will wander
+var wandering_ready: bool = false
 ## Only when idle NPC will wander
 var idle: bool = false
 
@@ -87,6 +89,8 @@ func _ready() -> void:
 	current_health = health
 	wandering_rotator = rng.randi_range(-15, 15)
 	$PlayerModel.add_child(puppet_mesh)
+	
+	NavigationServer3D.map_changed.connect(on_map_updated)
 
 func _physics_process(delta: float) -> void:
 	# Wander if wandering enabled
@@ -191,13 +195,14 @@ func on_moving_platform(start: bool):
 func wander(delta: float):
 	# If wander_action, the npc will walk as much as possible, also generate new rotation
 	if wander_action:
-		wandering_rotator = rng.randi_range(-15, 15)
-		set_target_position(NavigationServer3D.map_get_random_point(_nav_agent.get_navigation_map(), 1, false), false)
-		# set the destination with a new rotation degrees
-		wandering_destination = roundi(rotation_degrees.y + wandering_rotator)
-		wander_action = false
-		#wandering_rotator = rng.randi_range(150, 179)
-		#wandering_destination = roundi(wrapf(rotation_degrees.y + wandering_rotator, -180, 180))
+		if wandering_ready:
+			wandering_rotator = rng.randi_range(-15, 15)
+			set_target_position(NavigationServer3D.map_get_random_point(_nav_agent.get_navigation_map(), 1, false), false)
+			# set the destination with a new rotation degrees
+			wandering_destination = roundi(rotation_degrees.y + wandering_rotator)
+			wander_action = false
+			#wandering_rotator = rng.randi_range(150, 179)
+			#wandering_destination = roundi(wrapf(rotation_degrees.y + wandering_rotator, -180, 180))
 	else:
 		# If the destination is reached - wander
 		if roundi(rotation_degrees.y) == wandering_destination:
@@ -227,3 +232,7 @@ func play_footstep_sound(sprinting: bool):
 		else:
 			walk_sounds.stream = load(footstep_sounds[rng.randi_range(0, footstep_sounds.size() - 1)])
 			walk_sounds.play()
+
+func on_map_updated(map: RID):
+	wandering_ready = true
+	NavigationServer3D.map_changed.disconnect(on_map_updated)
