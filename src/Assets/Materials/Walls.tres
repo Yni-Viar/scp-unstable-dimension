@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bx6svntie8yke"]
+
+[ext_resource type="Texture2D" uid="uid://ycofs68bfwy" path="res://Assets/Materials/Tile_HCZConcrete_Triple_Albedo.png" id="1_286k2"]
+[ext_resource type="Texture2D" uid="uid://b3aritn34su2" path="res://Assets/Materials/Tile_HCZConcrete_Triple_Normal.png" id="2_fu0sh"]
+
+[resource]
+resource_name = "Walls"
+albedo_texture = ExtResource("1_286k2")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_fu0sh")

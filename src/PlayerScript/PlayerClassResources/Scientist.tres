@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PuppetClass" load_steps=3 format=3 uid="uid://cdvadpe1bwmkp"]
+
+[ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="1_8ufov"]
+[ext_resource type="PackedScene" uid="uid://citkd65dmhf8b" path="res://PlayerScript/PlayerClassPrefab/scientist.tscn" id="1_a3ar7"]
+
+[resource]
+script = ExtResource("1_8ufov")
+puppet_class_name = "SCIENCE_PERSONNEL"
+speed = 3.0
+prefab = ExtResource("1_a3ar7")
+spawn_point_group = "ScientistStaticSpawn"
+initial_amount = 11
+automatic = false
+footstep_sounds = {
+"run": PackedStringArray("res://Sounds/Character/Human/Step/step_1.ogg", "res://Sounds/Character/Human/Step/step_2.ogg", "res://Sounds/Character/Human/Step/step_3.ogg", "res://Sounds/Character/Human/Step/step_4.ogg", "res://Sounds/Character/Human/Step/step_5.ogg", "res://Sounds/Character/Human/Step/step_6.ogg", "res://Sounds/Character/Human/Step/step_7.ogg", "res://Sounds/Character/Human/Step/step_8.ogg", "res://Sounds/Character/Human/Step/step_9.ogg"),
+"walk": PackedStringArray("res://Sounds/Character/Human/Step/step_1.ogg", "res://Sounds/Character/Human/Step/step_2.ogg", "res://Sounds/Character/Human/Step/step_3.ogg", "res://Sounds/Character/Human/Step/step_4.ogg", "res://Sounds/Character/Human/Step/step_5.ogg", "res://Sounds/Character/Human/Step/step_6.ogg", "res://Sounds/Character/Human/Step/step_7.ogg", "res://Sounds/Character/Human/Step/step_8.ogg", "res://Sounds/Character/Human/Step/step_9.ogg")
+}
+fraction = 0
+apply_height_bugfix = false
+enable_wander = true
+health = Array[float]([100.0, 10.0])
+team = 1
