@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dmnkcdm0dyviq"]
+[gd_scene load_steps=8 format=4 uid="uid://clvrjlnn4ci8w"]
 
 [ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/Walls.tres" id="1_k2bc5"]
 [ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/Floor.tres" id="2_ccqsl"]
@@ -106,5 +106,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.768606, 10.24)
 start_position = Vector3(0, 0, 1)
 end_position = Vector3(0, 0, -1)
 
-[node name="entityspawn" type="Marker3D" parent="." groups=["Spawner"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29028, -1, -5.89514)
+[node name="entityspawn" type="Marker3D" parent="." groups=["ScientistSpawn"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.85264, -1, -6.04895)
+
+[node name="guardspawn" type="Marker3D" parent="entityspawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38079, 0, -4.59047)
+
+[node name="guardspawn2" type="Marker3D" parent="entityspawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82238, 0, -4.42628)

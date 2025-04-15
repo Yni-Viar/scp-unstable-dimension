@@ -110,6 +110,3 @@ end_position = Vector3(0, 0, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.768606, -9.56048)
 start_position = Vector3(0, 0, 1)
 end_position = Vector3(0, 0, -1)
-
-[node name="entityspawn" type="Marker3D" parent="." groups=["Spawner"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

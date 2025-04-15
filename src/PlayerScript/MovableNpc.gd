@@ -86,11 +86,14 @@ func _ready() -> void:
 	fraction = puppet_class.fraction
 	health = puppet_class.health
 	wandering = puppet_class.enable_wander
+	_nav_agent.avoidance_enabled = puppet_class.enable_avoidance
 	current_health = health
 	wandering_rotator = rng.randi_range(-15, 15)
 	$PlayerModel.add_child(puppet_mesh)
 	
 	NavigationServer3D.map_changed.connect(on_map_updated)
+	if _nav_agent.avoidance_enabled:
+		_nav_agent.velocity_computed.connect(move_pawn)
 
 func _physics_process(delta: float) -> void:
 	# Wander if wandering enabled
@@ -124,7 +127,10 @@ func _physics_process(delta: float) -> void:
 	var next_position := _nav_agent.get_next_path_position()
 	var offset := next_position - global_position
 	if !offset.is_equal_approx(prev_offset[1]) && !offset.is_equal_approx(prev_offset[0]):
-		global_position = global_position.move_toward(next_position, delta * character_speed)
+		if _nav_agent.avoidance_enabled:
+			_nav_agent.set_velocity(offset)
+		else:
+			move_pawn(offset)
 		look_at(global_position + Vector3(offset.x, 0, offset.z), Vector3.UP)
 	else:
 		if puppet_mesh != null:
@@ -132,6 +138,9 @@ func _physics_process(delta: float) -> void:
 	
 	prev_offset[1] = prev_offset[0]
 	prev_offset[0] = offset
+
+func move_pawn(safe_velocity):
+	global_position = global_position.move_toward(global_position + safe_velocity, get_physics_process_delta_time() * character_speed)
 
 func set_target_position(target_position: Vector3, hold: bool = false) -> void:
 	_nav_agent.set_target_position(target_position)
@@ -184,7 +193,7 @@ func target_follow():
 	if follow_update_timer > 0:
 		follow_update_timer -= get_physics_process_delta_time()
 	else:
-		set_target_position(get_node(follow_target).global_position - get_node(follow_target).global_transform.basis.z * 1.5)
+		set_target_position(get_node(follow_target).global_position + get_node(follow_target).global_transform.basis.z * 1.5)
 		follow_update_timer = 1.0
 
 ## MUST be called by moving platform when starts or ends moving.
@@ -216,9 +225,10 @@ func wander(delta: float):
 
 ## Stop wandering for a while.
 func hold_still():
-	wandering = false
-	await get_tree().create_timer(15.0).timeout
-	wandering = true
+	if wandering:
+		wandering = false
+		await get_tree().create_timer(15.0).timeout
+		wandering = true
 
 ## Make footstep sounds audible to all.
 func play_footstep_sound(sprinting: bool):

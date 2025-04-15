@@ -17,6 +17,6 @@ footstep_sounds = {
 }
 fraction = 0
 apply_height_bugfix = false
-enable_wander = true
+enable_wander = false
 health = Array[float]([100.0, 10.0])
 team = 1
