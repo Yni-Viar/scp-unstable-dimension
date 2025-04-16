@@ -9,4 +9,4 @@ script = ExtResource("1_cfg1l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.820679, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)

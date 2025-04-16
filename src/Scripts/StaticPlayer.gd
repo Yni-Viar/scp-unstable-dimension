@@ -4,6 +4,7 @@ class_name StaticPlayer
 var mouse_sensitivity = 0.03125
 var prev_x_coordinate: float = 0
 var scroll_factor: float = 1.0
+var target_puppet_path: String
 
 const RAY_LENGTH = 1000
 
@@ -18,7 +19,7 @@ func _input(event: InputEvent) -> void:
 			rotate_object_local(Vector3.UP, event.relative.x * mouse_sensitivity * 0.05)
 			var y_rotation = clamp(event.relative.y, -30, 30)
 			$Head.rotate_object_local(Vector3.RIGHT, y_rotation * mouse_sensitivity * 0.05)
-			$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 90)
+			$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 0)
 			#rotation.y -= event.relative.x * mouse_sensitivity * 0.05
 			#rotation.x -= event.relative.y * mouse_sensitivity * 0.05
 			#rotation_degrees.y = clamp(rotation_degrees.y, -90, 90)
@@ -27,7 +28,7 @@ func _input(event: InputEvent) -> void:
 		rotate_object_local(Vector3.UP, event.relative.x * mouse_sensitivity * 0.05)
 		var y_rotation = clamp(event.relative.y, -30, 30)
 		$Head.rotate_object_local(Vector3.RIGHT, y_rotation * mouse_sensitivity * 0.05)
-		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 90)
+		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 0)
 	if event is InputEventMagnifyGesture:
 		scroll_factor += event.factor
 		scroll_factor = clamp(scroll_factor, 1.0, 8.0)
@@ -60,5 +61,6 @@ func intersect() -> Dictionary:
 func interact(value: String) -> void:
 	match value:
 		"Point":
-			if get_parent().get_parent().get_parent() is MovableNpc:
-				get_parent().get_parent().get_parent().set_target_position(intersect()["position"], true)
+			var result: Dictionary = intersect()
+			if result.keys().size() > 0:
+				get_node(target_puppet_path).set_target_position(result["position"], true)

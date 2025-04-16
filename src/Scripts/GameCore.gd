@@ -6,7 +6,7 @@ var player: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$FacilityGenerator.prepare_generation()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +27,7 @@ func spawn_puppets():
 	var spawns = get_tree().get_nodes_in_group("ScientistSpawn")
 	var selected_spawn: Marker3D = spawns[rng.randi_range(0, spawns.size() - 1)]
 	selected_spawn.add_child(protagonist)
+	$StaticPlayer.target_puppet_path = protagonist.get_path()
 	for i in range(2):
 		if i < selected_spawn.get_child_count() - 1:
 			var friendly_puppet: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()

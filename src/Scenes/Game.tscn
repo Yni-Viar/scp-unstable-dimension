@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://6l8r5fy0ymqt"]
+
+[ext_resource type="Script" uid="uid://k3xvlffr17rf" path="res://Scripts/GameCore.gd" id="1_7lihs"]
+[ext_resource type="Resource" uid="uid://kakqpi6wi07u" path="res://Scripts/GameData/DefaultGame.tres" id="2_fgofq"]
+[ext_resource type="Script" uid="uid://bu7shnqhd7um8" path="res://MapGen/MapGen3D.gd" id="3_2irst"]
+[ext_resource type="PackedScene" uid="uid://by5c7g15ljuta" path="res://PlayerScript/static_player.tscn" id="3_bf53h"]
+[ext_resource type="Script" uid="uid://d0tlgr0c6w7gq" path="res://MapGen/MapGenZone.gd" id="4_bf53h"]
+[ext_resource type="Resource" uid="uid://7prvjngodfs1" path="res://MapGen/test3D.tres" id="5_71axn"]
+[ext_resource type="Script" uid="uid://brnmrs6xlpyic" path="res://Scripts/Test.gd" id="6_dahhg"]
+[ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://Assets/HUD/Touch/back_button.png" id="7_fgofq"]
+
+[sub_resource type="Environment" id="Environment_mvdmi"]
+background_mode = 1
+background_color = Color(0.404511, 0.404511, 0.404511, 1)
+ambient_light_energy = 4.0
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_7lihs")
+gamedata = ExtResource("2_fgofq")
+
+[node name="StaticPlayer" parent="." instance=ExtResource("3_bf53h")]
+
+[node name="FacilityGenerator" type="Node3D" parent="."]
+script = ExtResource("3_2irst")
+rooms = Array[ExtResource("4_bf53h")]([ExtResource("5_71axn")])
+enable_door_generation = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mvdmi")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_dahhg")
+
+[node name="Back" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("7_fgofq")
+
+[connection signal="generated" from="FacilityGenerator" to="." method="_on_facility_generator_generated"]
+[connection signal="pressed" from="UI/Back" to="UI" method="_on_back_pressed"]
