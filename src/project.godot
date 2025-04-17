@@ -21,6 +21,7 @@ config/icon="uid://c7yat1lfp8emn"
 [global_group]
 
 ScientistSpawn=""
+GeneratorSpawn=""
 
 [input]
 

@@ -3,6 +3,7 @@ extends Node3D
 @export var gamedata: GameData
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var player: Node3D
+var activated_generators: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _on_facility_generator_generated() -> void:
 	spawn_puppets()
 
 func spawn_puppets():
+	# Player and allies
 	var protagonist: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
 	protagonist.puppet_class = gamedata.puppet_class[0]
 	var spawns = get_tree().get_nodes_in_group("ScientistSpawn")
@@ -34,3 +36,14 @@ func spawn_puppets():
 			friendly_puppet.puppet_class = gamedata.friend_puppet_class[rng.randi_range(0, gamedata.friend_puppet_class.size() - 1)]
 			selected_spawn.get_child(i).add_child(friendly_puppet)
 			friendly_puppet.follow_target = protagonist.get_path()
+	# Generators
+	var gen_spawns = get_tree().get_nodes_in_group("GeneratorSpawn")
+	for j in range(rng.randi_range(2, 4)):
+		if j < gen_spawns.size():
+			var generator: Node3D = load("res://Assets/ExternalModels/power_box.tscn").instantiate()
+			gen_spawns[j].add_child(generator)
+			activated_generators += 1
+
+func finish_game(good_end: bool):
+	$UI/Condition/ConditionLabel.text = "YOU WIN" if good_end else "YOU LOSE"
+	$UI/Condition.show()

@@ -105,3 +105,6 @@ end_position = Vector3(0, 0, -1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.860662, 0)
 shape = SubResource("ConcavePolygonShape3D_266ir")
+
+[node name="GeneratorSpawn" type="Marker3D" parent="." groups=["GeneratorSpawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0124636, 1.69374, -6.93311)
