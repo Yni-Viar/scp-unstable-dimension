@@ -127,6 +127,12 @@ func _physics_process(delta: float) -> void:
 	var next_position := _nav_agent.get_next_path_position()
 	var offset := next_position - global_position
 	if !offset.is_equal_approx(prev_offset[1]) && !offset.is_equal_approx(prev_offset[0]):
+		if character_speed > 15:
+			if puppet_mesh != null:
+				puppet_mesh.state = puppet_mesh.States.RUNNING
+		else:
+			if puppet_mesh != null:
+				puppet_mesh.state = puppet_mesh.States.WALKING
 		if _nav_agent.avoidance_enabled:
 			_nav_agent.set_velocity(offset)
 		else:

@@ -12,7 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if !$GameOverTimer.is_stopped():
+		$UI/TimeToLeft.text = "SECONDS LEFT: " + str(ceil($GameOverTimer.time_left))
 
 
 func _on_facility_generator_generated() -> void:
@@ -47,3 +48,8 @@ func spawn_puppets():
 func finish_game(good_end: bool):
 	$UI/Condition/ConditionLabel.text = "YOU WIN" if good_end else "YOU LOSE"
 	$UI/Condition.show()
+	$GameOverTimer.stop()
+
+
+func _on_game_over_timer_timeout() -> void:
+	finish_game(false)

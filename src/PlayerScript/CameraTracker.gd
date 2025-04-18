@@ -8,4 +8,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	get_tree().root.get_node("Game/StaticPlayer").global_position = global_position
+	get_tree().root.get_node("Game/StaticPlayer").global_position = global_position + Vector3(0, 3, 0)

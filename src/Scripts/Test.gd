@@ -11,16 +11,16 @@ func _process(delta):
 
 
 
-func _on_seed_text_changed(new_text):
-	if new_text != "":
-		get_parent().get_node("FacilityGenerator").rng_seed = hash(new_text)
-	else:
-		get_parent().get_node("FacilityGenerator").rng_seed = -1
-
-
-func _on_generate_pressed():
-	get_parent().get_node("FacilityGenerator").clear()
-	get_parent().get_node("FacilityGenerator").prepare_generation()
+#func _on_seed_text_changed(new_text):
+	#if new_text != "":
+		#get_parent().get_node("FacilityGenerator").rng_seed = hash(new_text)
+	#else:
+		#get_parent().get_node("FacilityGenerator").rng_seed = -1
+#
+#
+#func _on_generate_pressed():
+	#get_parent().get_node("FacilityGenerator").clear()
+	#get_parent().get_node("FacilityGenerator").prepare_generation()
 
 
 func _on_back_pressed() -> void:

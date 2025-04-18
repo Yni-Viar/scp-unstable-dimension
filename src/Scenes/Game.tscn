@@ -12,8 +12,10 @@
 
 [sub_resource type="Environment" id="Environment_mvdmi"]
 background_mode = 1
-background_color = Color(0.404511, 0.404511, 0.404511, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.404511, 0.404511, 0.404511, 1)
 ambient_light_energy = 4.0
+glow_enabled = true
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_7lihs")
@@ -28,6 +30,11 @@ enable_door_generation = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mvdmi")
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 180.0
+one_shot = true
+autostart = true
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -91,6 +98,18 @@ grow_vertical = 0
 localize_numeral_system = false
 text = "BACK TO MENU"
 
+[node name="TimeToLeft" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 32
+
 [connection signal="generated" from="FacilityGenerator" to="." method="_on_facility_generator_generated"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
 [connection signal="pressed" from="UI/Back" to="UI" method="_on_back_pressed"]
 [connection signal="pressed" from="UI/Condition/Back" to="UI" method="_on_back_pressed"]
