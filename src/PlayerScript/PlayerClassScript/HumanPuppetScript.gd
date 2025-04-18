@@ -70,9 +70,9 @@ func _physics_process(delta: float) -> void:
 		if collider is MovableNpc:
 			var puppet_class = collider.puppet_class
 			if puppet_class.fraction == 2:
-				vision_entity.append(collider.get_node("Puppet"))
-				if !collider.get_node("Puppet").watching_puppets.has(get_parent().get_parent()):
-					collider.get_node("Puppet").watching_puppets.append(get_parent().get_parent())
+				vision_entity.append(collider.get_node("PlayerModel/Puppet"))
+				if !collider.get_node("PlayerModel/Puppet").watching_puppets.has(get_parent().get_parent()):
+					collider.get_node("PlayerModel/Puppet").watching_puppets.append(get_parent().get_parent())
 			elif vision_entity.size() > 0:
 				for entity in vision_entity:
 					entity.watching_puppets.clear()

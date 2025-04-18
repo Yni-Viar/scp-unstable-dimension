@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PuppetClass" load_steps=3 format=3 uid="uid://cdvadpe1bwmkp"]
 
 [ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="1_8ufov"]
-[ext_resource type="PackedScene" uid="uid://citkd65dmhf8b" path="res://PlayerScript/PlayerClassPrefab/scientist.tscn" id="1_a3ar7"]
+[ext_resource type="PackedScene" uid="uid://citkd65dmhf8b" path="res://PlayerScript/PlayerClassPrefab/ally/scientist.tscn" id="1_a3ar7"]
 
 [resource]
 script = ExtResource("1_8ufov")

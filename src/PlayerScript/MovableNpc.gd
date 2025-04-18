@@ -94,6 +94,8 @@ func _ready() -> void:
 	NavigationServer3D.map_changed.connect(on_map_updated)
 	if _nav_agent.avoidance_enabled:
 		_nav_agent.velocity_computed.connect(move_pawn)
+	else:
+		wandering_ready = true
 
 func _physics_process(delta: float) -> void:
 	# Wander if wandering enabled
@@ -212,7 +214,7 @@ func wander(delta: float):
 	if wander_action:
 		if wandering_ready:
 			wandering_rotator = rng.randi_range(-15, 15)
-			set_target_position(NavigationServer3D.map_get_random_point(_nav_agent.get_navigation_map(), 1, false), false)
+			set_target_position(NavigationServer3D.map_get_random_point(_nav_agent.get_navigation_map(), 1, true), false)
 			# set the destination with a new rotation degrees
 			wandering_destination = roundi(rotation_degrees.y + wandering_rotator)
 			wander_action = false

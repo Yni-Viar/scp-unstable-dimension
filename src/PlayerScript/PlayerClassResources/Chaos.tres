@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PuppetClass" load_steps=3 format=3 uid="uid://br4pxad71a6v3"]
+
+[ext_resource type="PackedScene" uid="uid://bbwdmitjo6s86" path="res://PlayerScript/PlayerClassPrefab/enemy/chaos.tscn" id="1_fimat"]
+[ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="2_biw8b"]
+
+[resource]
+script = ExtResource("2_biw8b")
+puppet_class_name = "Chaos Insurgent"
+speed = 3.0
+prefab = ExtResource("1_fimat")
+spawn_point_group = "EnemySpawn"
+initial_amount = 3
+automatic = false
+footstep_sounds = {
+"run": PackedStringArray("res://Sounds/Character/Human/Step/Run1.ogg", "res://Sounds/Character/Human/Step/Run2.ogg", "res://Sounds/Character/Human/Step/Run3.ogg", "res://Sounds/Character/Human/Step/Run4.ogg", "res://Sounds/Character/Human/Step/Run5.ogg", "res://Sounds/Character/Human/Step/Run6.ogg", "res://Sounds/Character/Human/Step/Run7.ogg", "res://Sounds/Character/Human/Step/Run8.ogg"),
+"walk": PackedStringArray("res://Sounds/Character/Human/Step/Step1.ogg", "res://Sounds/Character/Human/Step/Step2.ogg", "res://Sounds/Character/Human/Step/Step3.ogg", "res://Sounds/Character/Human/Step/Step4.ogg", "res://Sounds/Character/Human/Step/Step5.ogg", "res://Sounds/Character/Human/Step/Step6.ogg", "res://Sounds/Character/Human/Step/Step7.ogg", "res://Sounds/Character/Human/Step/Step8.ogg")
+}
+fraction = 1
+apply_height_bugfix = false
+enable_wander = true
+health = Array[float]([100.0, 10.0])
+team = 0
+enable_avoidance = false

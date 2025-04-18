@@ -18,8 +18,8 @@
 
 [resource]
 script = ExtResource("1_mti3u")
-endrooms = Array[ExtResource("1_obfoh")]([ExtResource("5_nfbtj"), ExtResource("7_yhich")])
-endrooms_single = Array[ExtResource("1_obfoh")]([ExtResource("6_nknuh"), ExtResource("7_whr7c"), ExtResource("9_fekca")])
+endrooms = Array[ExtResource("1_obfoh")]([ExtResource("5_nfbtj")])
+endrooms_single = Array[ExtResource("1_obfoh")]([ExtResource("6_nknuh"), ExtResource("7_whr7c"), ExtResource("9_fekca"), ExtResource("7_yhich")])
 endrooms_single_large = Array[ExtResource("1_obfoh")]([])
 hallways = Array[ExtResource("1_obfoh")]([ExtResource("7_mgmv3"), ExtResource("8_33xam")])
 hallways_single = Array[ExtResource("1_obfoh")]([ExtResource("11_fekca"), ExtResource("12_1woyu")])

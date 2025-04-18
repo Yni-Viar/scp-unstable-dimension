@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="GameData" load_steps=5 format=3 uid="uid://kakqpi6wi07u"]
+[gd_resource type="Resource" script_class="GameData" load_steps=6 format=3 uid="uid://kakqpi6wi07u"]
 
 [ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="1_uwdlv"]
 [ext_resource type="Script" uid="uid://cgv4yjj6gyjc1" path="res://Scripts/GameData/GameData.gd" id="2_2kq0r"]
 [ext_resource type="Resource" uid="uid://cdvadpe1bwmkp" path="res://PlayerScript/PlayerClassResources/Scientist.tres" id="2_e3ifs"]
+[ext_resource type="Resource" uid="uid://br4pxad71a6v3" path="res://PlayerScript/PlayerClassResources/Chaos.tres" id="2_hycde"]
 [ext_resource type="Resource" uid="uid://dtxvxmwsol0hf" path="res://PlayerScript/PlayerClassResources/Guard.tres" id="3_hycde"]
 
 [resource]
 script = ExtResource("2_2kq0r")
 puppet_class = Array[ExtResource("1_uwdlv")]([ExtResource("2_e3ifs")])
 friend_puppet_class = Array[ExtResource("1_uwdlv")]([ExtResource("3_hycde")])
+enemy_puppet_class = Array[ExtResource("1_uwdlv")]([ExtResource("2_hycde")])
 metadata/_custom_type_script = "uid://cgv4yjj6gyjc1"

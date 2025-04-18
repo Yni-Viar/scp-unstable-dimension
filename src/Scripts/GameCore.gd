@@ -4,6 +4,7 @@ extends Node3D
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var player: Node3D
 var activated_generators: int = 0
+var enemy_spawned: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +14,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !$GameOverTimer.is_stopped():
-		$UI/TimeToLeft.text = "SECONDS LEFT: " + str(ceil($GameOverTimer.time_left))
+		$UI/TimeToLeft.text = "SECONDS LEFT: " + str(ceili($GameOverTimer.time_left))
+		if ceili($GameOverTimer.time_left) == 170 && !enemy_spawned:
+			spawn_enemies()
+			enemy_spawned = true
 
 
 func _on_facility_generator_generated() -> void:
@@ -45,10 +49,28 @@ func spawn_puppets():
 			gen_spawns[j].add_child(generator)
 			activated_generators += 1
 
+func spawn_enemies():
+	if gamedata.enemy_puppet_class.size() > 0:
+		spawn_enemy_entity(rng.randi_range(1, 3), rng.randi_range(0, gamedata.enemy_puppet_class.size() - 1))
+
+func spawn_enemy_entity(how_much_spawn: int, class_id: int):
+	var spawn = get_tree().get_first_node_in_group("EnemySpawn")
+	var vfxspawn = load("res://Assets/VFX/enemyspawnvfx.tscn").instantiate()
+	for i in range(how_much_spawn):
+		spawn.get_child(i).add_child(vfxspawn)
+	await get_tree().create_timer(1.0).timeout
+	var enemy: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
+	enemy.puppet_class = gamedata.enemy_puppet_class[class_id]
+	for i in range(how_much_spawn):
+		spawn.get_child(i).add_child(enemy)
+	vfxspawn.queue_free()
+	
+
 func finish_game(good_end: bool):
 	$UI/Condition/ConditionLabel.text = "YOU WIN" if good_end else "YOU LOSE"
 	$UI/Condition.show()
 	$GameOverTimer.stop()
+	get_tree().paused = true
 
 
 func _on_game_over_timer_timeout() -> void:
