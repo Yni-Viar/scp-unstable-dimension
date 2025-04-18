@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if activated == ActivatedStatus.ACTIVATING:
 		if !$Timer.is_stopped():
-			$Display.text = "ACTIVATING...\n" + str($Timer.time_left) + "\nSECONDS LEFT"
+			$Display.text = "ACTIVATING...\n" + str(ceil($Timer.time_left)) + "\nSECONDS LEFT"
 
 
 func _on_puppet_awaiter_body_entered(body: Node3D) -> void:
