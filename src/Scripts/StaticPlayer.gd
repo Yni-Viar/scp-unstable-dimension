@@ -63,4 +63,7 @@ func interact(value: String) -> void:
 		"Point":
 			var result: Dictionary = intersect()
 			if result.keys().size() > 0:
-				get_node(target_puppet_path).set_target_position(result["position"], true)
+				if get_node_or_null(target_puppet_path) == null:
+					get_tree().root.get_node("Game").finish_game(false)
+				else:
+					get_node(target_puppet_path).set_target_position(result["position"], true)

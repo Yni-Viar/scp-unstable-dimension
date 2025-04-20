@@ -4,11 +4,10 @@ extends Resource
 class_name PuppetClass
 
 @export var puppet_class_name: String
-@export var speed: float = 3
+@export var speed: float = 10.0
 @export var prefab: PackedScene
 ## Group, where the game find spawnpoints
 @export var spawn_point_group: String
-@export var initial_amount: int
 ## Is this NPC controlled by the player
 @export var automatic: bool
 @export var footstep_sounds: Dictionary
@@ -24,3 +23,5 @@ class_name PuppetClass
 @export var team: int = 0
 ## Enables avoidance
 @export var enable_avoidance: bool = true
+## Does the puppet spawn on start
+@export var spawn_on_start = true

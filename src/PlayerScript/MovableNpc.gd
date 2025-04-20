@@ -72,6 +72,7 @@ var prev_offset: PackedVector3Array = [Vector3.ONE, Vector3.ONE]
 ## A check for bugfix height only once.
 var height_bugfix_applied: bool = false
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+var spawn_on_start: bool = true
 
 var puppet_mesh: BasePuppetScript
 
@@ -86,16 +87,19 @@ func _ready() -> void:
 	fraction = puppet_class.fraction
 	health = puppet_class.health
 	wandering = puppet_class.enable_wander
+	spawn_on_start = puppet_class.spawn_on_start
 	_nav_agent.avoidance_enabled = puppet_class.enable_avoidance
 	current_health = health
 	wandering_rotator = rng.randi_range(-15, 15)
 	$PlayerModel.add_child(puppet_mesh)
 	
-	NavigationServer3D.map_changed.connect(on_map_updated)
-	if _nav_agent.avoidance_enabled:
-		_nav_agent.velocity_computed.connect(move_pawn)
+	if spawn_on_start:
+		NavigationServer3D.map_changed.connect(on_map_updated)
 	else:
 		wandering_ready = true
+	
+	if _nav_agent.avoidance_enabled:
+		_nav_agent.velocity_computed.connect(move_pawn)
 
 func _physics_process(delta: float) -> void:
 	# Wander if wandering enabled
@@ -194,7 +198,8 @@ func health_manage(health_to_add: float, health_type: int = 0):
 		current_health[health_type] = health[health_type]
 	
 	if current_health[health_type] <= 0:
-		get_tree().root.get_node("Game/NPCs").object_remover(name)
+		# Remove one live
+		get_tree().root.get_node("Game").lives.pop_front().queue_free()
 
 ## Target follow target position setter.
 func target_follow():
@@ -229,7 +234,7 @@ func wander(delta: float):
 		if wandering_rotator > 120 || wandering_rotator < -120:
 			rotate_y(deg_to_rad(20 * delta))
 		else:
-			rotate_y(deg_to_rad(wandering_rotator * delta))
+			rotate_y(deg_to_rad(wandering_rotator * delta * 2))
 
 ## Stop wandering for a while.
 func hold_still():

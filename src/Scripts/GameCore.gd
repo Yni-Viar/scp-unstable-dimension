@@ -5,6 +5,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var player: Node3D
 var activated_generators: int = 0
 var enemy_spawned: bool = false
+var lives: Array[Node3D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +42,8 @@ func spawn_puppets():
 			friendly_puppet.puppet_class = gamedata.friend_puppet_class[rng.randi_range(0, gamedata.friend_puppet_class.size() - 1)]
 			selected_spawn.get_child(i).add_child(friendly_puppet)
 			friendly_puppet.follow_target = protagonist.get_path()
+			lives.append(friendly_puppet)
+	lives.append(protagonist)
 	# Generators
 	var gen_spawns = get_tree().get_nodes_in_group("GeneratorSpawn")
 	for j in range(rng.randi_range(2, 4)):
@@ -51,19 +54,22 @@ func spawn_puppets():
 
 func spawn_enemies():
 	if gamedata.enemy_puppet_class.size() > 0:
-		spawn_enemy_entity(rng.randi_range(1, 3), rng.randi_range(0, gamedata.enemy_puppet_class.size() - 1))
+		spawn_enemy_entity(rng.randi_range(2, 3), rng.randi_range(0, gamedata.enemy_puppet_class.size() - 1))
 
 func spawn_enemy_entity(how_much_spawn: int, class_id: int):
 	var spawn = get_tree().get_first_node_in_group("EnemySpawn")
-	var vfxspawn = load("res://Assets/VFX/enemyspawnvfx.tscn").instantiate()
 	for i in range(how_much_spawn):
+		var vfxspawn = load("res://Assets/VFX/enemyspawnvfx.tscn").instantiate()
 		spawn.get_child(i).add_child(vfxspawn)
 	await get_tree().create_timer(1.0).timeout
-	var enemy: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
-	enemy.puppet_class = gamedata.enemy_puppet_class[class_id]
 	for i in range(how_much_spawn):
+		var enemy: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
+		enemy.puppet_class = gamedata.enemy_puppet_class[class_id]
 		spawn.get_child(i).add_child(enemy)
-	vfxspawn.queue_free()
+	for i in range(how_much_spawn):
+		for node in spawn.get_child(i).get_children():
+			if node is not MovableNpc:
+				node.queue_free()
 	
 
 func finish_game(good_end: bool):
