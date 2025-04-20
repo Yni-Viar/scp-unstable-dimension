@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://btsa5hmlrxjwj"
 path.s3tc="res://.godot/imported/PouchesSmall_guard_AlbedoTransparency.png-e3b1e6739739e0502ae4a36486db2f75.s3tc.ctex"
+path.etc2="res://.godot/imported/PouchesSmall_guard_AlbedoTransparency.png-e3b1e6739739e0502ae4a36486db2f75.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/ExternalModels/SCP/Guard-fixed/PouchesSmall_guard_AlbedoTransparency.png"
-dest_files=["res://.godot/imported/PouchesSmall_guard_AlbedoTransparency.png-e3b1e6739739e0502ae4a36486db2f75.s3tc.ctex"]
+dest_files=["res://.godot/imported/PouchesSmall_guard_AlbedoTransparency.png-e3b1e6739739e0502ae4a36486db2f75.s3tc.ctex", "res://.godot/imported/PouchesSmall_guard_AlbedoTransparency.png-e3b1e6739739e0502ae4a36486db2f75.etc2.ctex"]
 
 [params]
 
@@ -31,5 +32,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=512
 detect_3d/compress_to=0

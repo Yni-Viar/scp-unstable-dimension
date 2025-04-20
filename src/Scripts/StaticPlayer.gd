@@ -4,7 +4,7 @@ class_name StaticPlayer
 var mouse_sensitivity = 0.03125
 var prev_x_coordinate: float = 0
 var scroll_factor: float = 1.0
-var target_puppet_path: String
+var target_puppet_path: String = ""
 
 const RAY_LENGTH = 1000
 
@@ -46,6 +46,11 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		interact("Point")
+	if !target_puppet_path.is_empty():
+		if get_node_or_null(target_puppet_path) == null:
+			get_tree().root.get_node("Game").finish_game(false)
+		else:
+			get_tree().root.get_node("Game/UI/HealthBar").value = get_node(target_puppet_path).current_health[0]
 
 func intersect() -> Dictionary:
 	var space_state = get_world_3d().direct_space_state
@@ -63,7 +68,4 @@ func interact(value: String) -> void:
 		"Point":
 			var result: Dictionary = intersect()
 			if result.keys().size() > 0:
-				if get_node_or_null(target_puppet_path) == null:
-					get_tree().root.get_node("Game").finish_game(false)
-				else:
-					get_node(target_puppet_path).set_target_position(result["position"], true)
+				get_node(target_puppet_path).set_target_position(result["position"], true)

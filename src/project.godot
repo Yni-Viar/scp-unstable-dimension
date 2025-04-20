@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Contain & Research"
+config/name="SCP: Unstable Dimension"
 config/tags=PackedStringArray("demo", "game", "singleplayer")
 run/main_scene="uid://b25hrjnoos5me"
 config/use_custom_user_dir=true
@@ -55,3 +55,4 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

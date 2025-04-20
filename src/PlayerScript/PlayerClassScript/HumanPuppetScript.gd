@@ -5,7 +5,7 @@ class_name HumanPuppetScript
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-enum SecondaryState {NONE, ITEM, CUFFED, JAILBIRD_ATTACK}
+enum SecondaryState {NONE, ITEM, CUFFED, JAILBIRD_ATTACK, INTERACT}
 
 @export var secondary_state: SecondaryState = SecondaryState.NONE
 
@@ -51,6 +51,8 @@ func _physics_process(delta: float) -> void:
 				call("set_state", "secondary_state", "transition_request", "cuffed")
 			SecondaryState.JAILBIRD_ATTACK:
 				call("set_state", "secondary_state", "transition_request", "jailbird_attack")
+			SecondaryState.INTERACT:
+				call("set_state", "secondary_state", "transition_request", "interact")
 		if secondary_state != SecondaryState.NONE:
 			if !get_node("AnimationTree").get("parameters/items_blend/blend_amount") + 0.00001 > 1:
 				call("set_state", "items_blend", "blend_amount", lerp(get_node("AnimationTree").get("parameters/items_blend/blend_amount"), 1.0, get_parent().get_parent().character_speed * delta))
@@ -108,10 +110,10 @@ func footstep(key: String):
 	get_parent().get_parent().get_node("WalkSounds").play()
 
 ## Follow the players, if cuffed
-func target_follow(delta: float):
-	if update_timer > 0:
-		update_timer -= delta
-	else:
-		for player in cuffed_players:
-			player.set_movement_target(get_parent().get_parent().global_position, true, false)
-		update_timer = 1.0
+#func target_follow(delta: float):
+	#if update_timer > 0:
+		#update_timer -= delta
+	#else:
+		#for player in cuffed_players:
+			#player.set_movement_target(get_parent().get_parent().global_position, true, false)
+		#update_timer = 1.0

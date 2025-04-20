@@ -243,19 +243,6 @@ func hold_still():
 		await get_tree().create_timer(15.0).timeout
 		wandering = true
 
-## Make footstep sounds audible to all.
-func play_footstep_sound(sprinting: bool):
-	if move_sounds_enabled:
-		if sprinting:
-			if sprint_sounds.size() == 0:
-				walk_sounds.stream = load(footstep_sounds[rng.randi_range(0, footstep_sounds.size() - 1)])
-			else:
-				walk_sounds.stream = load(sprint_sounds[rng.randi_range(0, sprint_sounds.size() - 1)])
-			walk_sounds.play()
-		else:
-			walk_sounds.stream = load(footstep_sounds[rng.randi_range(0, footstep_sounds.size() - 1)])
-			walk_sounds.play()
-
 func on_map_updated(map: RID):
 	wandering_ready = true
 	NavigationServer3D.map_changed.disconnect(on_map_updated)

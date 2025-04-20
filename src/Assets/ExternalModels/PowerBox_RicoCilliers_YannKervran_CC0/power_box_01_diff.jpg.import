@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg7g2hjg8464u"
 path.s3tc="res://.godot/imported/power_box_01_diff.jpg-cbb6035862257fe00528db005b1a5230.s3tc.ctex"
+path.etc2="res://.godot/imported/power_box_01_diff.jpg-cbb6035862257fe00528db005b1a5230.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/ExternalModels/PowerBox_RicoCilliers_YannKervran_CC0/power_box_01_diff.jpg"
-dest_files=["res://.godot/imported/power_box_01_diff.jpg-cbb6035862257fe00528db005b1a5230.s3tc.ctex"]
+dest_files=["res://.godot/imported/power_box_01_diff.jpg-cbb6035862257fe00528db005b1a5230.s3tc.ctex", "res://.godot/imported/power_box_01_diff.jpg-cbb6035862257fe00528db005b1a5230.etc2.ctex"]
 
 [params]
 
@@ -31,5 +32,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=0

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://js8yaoku04g5"]
+
+[ext_resource type="Texture2D" uid="uid://b5uiqrx00a63p" path="res://Assets/ExternalModels/SCP/CommonMaterial/Mouth/Mouth_AlbedoTransparency.png" id="1_h7ppb"]
+[ext_resource type="Texture2D" uid="uid://4y3aoooumemn" path="res://Assets/ExternalModels/SCP/CommonMaterial/Mouth/Mouth_Normal.png" id="2_xlglm"]
+
+[resource]
+resource_name = "mouth.001"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_h7ppb")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_xlglm")

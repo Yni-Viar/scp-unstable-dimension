@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6l8r5fy0ymqt"]
+[gd_scene load_steps=15 format=3 uid="uid://6l8r5fy0ymqt"]
 
 [ext_resource type="Script" uid="uid://k3xvlffr17rf" path="res://Scripts/GameCore.gd" id="1_7lihs"]
 [ext_resource type="Resource" uid="uid://kakqpi6wi07u" path="res://Scripts/GameData/DefaultGame.tres" id="2_fgofq"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://by5c7g15ljuta" path="res://PlayerScript/static_player.tscn" id="3_bf53h"]
 [ext_resource type="Script" uid="uid://d0tlgr0c6w7gq" path="res://MapGen/MapGenZone.gd" id="4_bf53h"]
 [ext_resource type="Resource" uid="uid://7prvjngodfs1" path="res://MapGen/test3D.tres" id="5_71axn"]
-[ext_resource type="Script" uid="uid://brnmrs6xlpyic" path="res://Scripts/Test.gd" id="6_dahhg"]
+[ext_resource type="Script" uid="uid://brnmrs6xlpyic" path="res://Scripts/UI.gd" id="6_dahhg"]
 [ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://Assets/HUD/Touch/back_button.png" id="7_fgofq"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="9_bf53h"]
+[ext_resource type="Texture2D" uid="uid://dkgyet63cgaaa" path="res://Assets/HUD/healthbar.png" id="10_71axn"]
+[ext_resource type="AudioStream" uid="uid://0gapate5fity" path="res://Sounds/Music/lcz_ambient.ogg" id="11_dahhg"]
 
 [sub_resource type="Environment" id="Environment_mvdmi"]
 background_mode = 1
@@ -16,6 +18,15 @@ ambient_light_source = 2
 ambient_light_color = Color(0.404511, 0.404511, 0.404511, 1)
 ambient_light_energy = 4.0
 glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71axn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dahhg"]
+bg_color = Color(0.8, 0.8, 0.360784, 0.498039)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.360784, 1)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_7lihs")
@@ -32,7 +43,7 @@ enable_door_generation = false
 environment = SubResource("Environment_mvdmi")
 
 [node name="GameOverTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 120.0
 one_shot = true
 autostart = true
 
@@ -109,6 +120,56 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("9_bf53h")
 theme_override_font_sizes/font_size = 32
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.947
+anchor_right = 0.167
+anchor_bottom = 0.947
+offset_left = -128.384
+offset_top = -5.65601
+offset_right = 127.616
+offset_bottom = 18.344
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_71axn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dahhg")
+
+[node name="PanJanusz" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.149
+anchor_top = 0.888
+anchor_right = 0.149
+anchor_bottom = 0.888
+offset_left = -147.648
+offset_top = -15.4241
+offset_right = 148.352
+offset_bottom = 15.5759
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_bf53h")
+text = "Pan Janusz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthIcon" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.957
+anchor_right = 0.031
+anchor_bottom = 0.957
+offset_left = -19.712
+offset_top = -20.136
+offset_right = 20.288
+offset_bottom = 19.864
+grow_vertical = 0
+texture = ExtResource("10_71axn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dahhg")
+autoplay = true
 
 [connection signal="generated" from="FacilityGenerator" to="." method="_on_facility_generator_generated"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
