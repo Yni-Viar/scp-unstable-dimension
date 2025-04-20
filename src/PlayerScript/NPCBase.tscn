@@ -13,8 +13,8 @@ script = ExtResource("1_3jgrj")
 footstep_sounds = Array[String](["res://Sounds/Character/Human/Step/step_1.ogg", "res://Sounds/Character/Human/Step/step_2.ogg", "res://Sounds/Character/Human/Step/step_3.ogg", "res://Sounds/Character/Human/Step/step_4.ogg", "res://Sounds/Character/Human/Step/step_5.ogg", "res://Sounds/Character/Human/Step/step_6.ogg", "res://Sounds/Character/Human/Step/step_7.ogg", "res://Sounds/Character/Human/Step/step_8.ogg", "res://Sounds/Character/Human/Step/step_9.ogg"])
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.1
-max_speed = 12.0
+path_desired_distance = 0.5
+max_speed = 15.0
 
 [node name="PlayerModel" type="Node3D" parent="."]
 transform = Transform3D(1.50046, 0, 0, 0, 1.50046, 0, 0, 0, 1.50046, 0, 0, 0)

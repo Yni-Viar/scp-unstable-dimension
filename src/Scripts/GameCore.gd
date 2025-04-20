@@ -3,7 +3,10 @@ extends Node3D
 @export var gamedata: GameData
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var player: Node3D
+## It is actually how many generators are left
 var activated_generators: int = 0
+## How many generators are spawned
+var all_generators: int
 var enemy_spawned: bool = false
 var lives: Array[Node3D] = []
 
@@ -16,7 +19,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !$GameOverTimer.is_stopped():
 		$UI/TimeToLeft.text = "SECONDS LEFT: " + str(ceili($GameOverTimer.time_left))
-		if ceili($GameOverTimer.time_left) == 170 && !enemy_spawned:
+		if ceili($GameOverTimer.time_left) == 110 && !enemy_spawned:
 			spawn_enemies()
 			enemy_spawned = true
 
@@ -51,12 +54,13 @@ func spawn_puppets():
 			var generator: Node3D = load("res://Assets/ExternalModels/power_box.tscn").instantiate()
 			gen_spawns[j].add_child(generator)
 			activated_generators += 1
+	all_generators = activated_generators
 
 func spawn_enemies():
 	if gamedata.enemy_puppet_class.size() > 0:
-		spawn_enemy_entity(rng.randi_range(2, 3), rng.randi_range(0, gamedata.enemy_puppet_class.size() - 1))
+		spawn_enemy_entity(rng.randi_range(2, 3))#, rng.randi_range(0, gamedata.enemy_puppet_class.size() - 1))
 
-func spawn_enemy_entity(how_much_spawn: int, class_id: int):
+func spawn_enemy_entity(how_much_spawn: int):
 	var spawn = get_tree().get_first_node_in_group("EnemySpawn")
 	for i in range(how_much_spawn):
 		var vfxspawn = load("res://Assets/VFX/enemyspawnvfx.tscn").instantiate()
@@ -64,7 +68,10 @@ func spawn_enemy_entity(how_much_spawn: int, class_id: int):
 	await get_tree().create_timer(1.0).timeout
 	for i in range(how_much_spawn):
 		var enemy: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
-		enemy.puppet_class = gamedata.enemy_puppet_class[class_id]
+		# Temporary workaround, since all enemies are chaos insurgency
+		# Second chaos isurgent is always hacker, others are troopers
+		enemy.puppet_class = gamedata.enemy_puppet_class[0 if i != 1 else 1]
+		#enemy.puppet_class = gamedata.enemy_puppet_class[class_id]
 		spawn.get_child(i).add_child(enemy)
 	for i in range(how_much_spawn):
 		for node in spawn.get_child(i).get_children():
