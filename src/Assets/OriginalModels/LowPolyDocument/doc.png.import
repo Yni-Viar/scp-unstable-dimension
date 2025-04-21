@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnh5gfcjgck5c"
-path.s3tc="res://.godot/imported/Tile_HCZGround_Albedo.png-eff3808dd5e2c622d22e13d337642358.s3tc.ctex"
-path.etc2="res://.godot/imported/Tile_HCZGround_Albedo.png-eff3808dd5e2c622d22e13d337642358.etc2.ctex"
+uid="uid://1qd402unqyjm"
+path.s3tc="res://.godot/imported/doc.png-08687d2bc50734003d6592955b7e4c0c.s3tc.ctex"
+path.etc2="res://.godot/imported/doc.png-08687d2bc50734003d6592955b7e4c0c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materials/Tile_HCZGround_Albedo.png"
-dest_files=["res://.godot/imported/Tile_HCZGround_Albedo.png-eff3808dd5e2c622d22e13d337642358.s3tc.ctex", "res://.godot/imported/Tile_HCZGround_Albedo.png-eff3808dd5e2c622d22e13d337642358.etc2.ctex"]
+source_file="res://Assets/OriginalModels/LowPolyDocument/doc.png"
+dest_files=["res://.godot/imported/doc.png-08687d2bc50734003d6592955b7e4c0c.s3tc.ctex", "res://.godot/imported/doc.png-08687d2bc50734003d6592955b7e4c0c.etc2.ctex"]
 
 [params]
 
@@ -32,5 +32,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=256
 detect_3d/compress_to=0

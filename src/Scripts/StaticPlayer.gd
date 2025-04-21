@@ -29,10 +29,6 @@ func _input(event: InputEvent) -> void:
 		var y_rotation = clamp(event.relative.y, -30, 30)
 		$Head.rotate_object_local(Vector3.RIGHT, y_rotation * mouse_sensitivity * 0.05)
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 0)
-	if event is InputEventMagnifyGesture:
-		scroll_factor += event.factor
-		scroll_factor = clamp(scroll_factor, 1.0, 8.0)
-		$Head/Camera3D.fov = 75.0 / scroll_factor
 	if event.is_action_pressed("scroll_up"):
 		scroll_factor += 0.125
 		scroll_factor = clamp(scroll_factor, 1.0, 8.0)
@@ -41,6 +37,8 @@ func _input(event: InputEvent) -> void:
 		scroll_factor -= 0.125
 		scroll_factor = clamp(scroll_factor, 1.0, 8.0)
 		$Head/Camera3D.fov = 75.0 / scroll_factor
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

@@ -14,9 +14,18 @@ config/name="SCP: Unstable Dimension"
 config/tags=PackedStringArray("demo", "game", "singleplayer")
 run/main_scene="uid://b25hrjnoos5me"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="ContainResearch"
+config/custom_user_dir_name="SCPUD"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://c7yat1lfp8emn"
+
+[autoload]
+
+ResourceStorage="*res://Scripts/ResourceStorage.gd"
+Settings="*res://Scripts/Settings.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [global_group]
 

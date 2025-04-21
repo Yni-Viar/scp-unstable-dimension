@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://15w7wu7asqea"]
+[gd_scene load_steps=10 format=4 uid="uid://15w7wu7asqea"]
 
 [ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/Walls.tres" id="1_in1nt"]
 [ext_resource type="Material" uid="uid://drdixxgiv4gv4" path="res://Assets/Materials/Ceiling.tres" id="2_bxgva"]
 [ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/Floor.tres" id="3_gkhkg"]
 [ext_resource type="PackedScene" uid="uid://d2lho474tfbe4" path="res://Assets/OriginalModels/table.tscn" id="4_in18y"]
+[ext_resource type="Script" uid="uid://dxacesn4a1lyf" path="res://Scripts/DocSpawner.gd" id="5_bxgva"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_shvc4"]
 vertices = PackedVector3Array(-9.2905, -0.769568, 3.2414, -5.2905, -0.769568, 3.2414, -5.2905, -0.769568, 1.2414, -4.2905, -0.769568, -6.7586, 1.9595, -0.769568, -7.0086, 2.4595, -0.769568, -9.7586, -9.2905, -0.769568, -9.5086, -4.2905, -0.769568, 0.9914, 3.4595, -0.769568, -6.7586, 9.4595, -0.769568, -9.5086, 4.2095, -0.769568, 0.9914, 4.4595, -0.769568, 1.7414, 9.4595, -0.769568, 1.7414, 3.4595, -0.769568, 0.9914, -3.2905, 1.23043, 1.9914, -4.0405, 1.23043, 2.2414, -4.0405, 1.23043, 4.4914, 3.2095, 1.23043, 4.4914, 3.2095, 1.23043, 2.2414, 2.2095, 1.23043, 1.9914, 2.2095, 1.23043, -5.7586, -3.2905, 1.23043, -6.0086, 4.2095, -0.769568, 5.2414, 2.9595, -0.769568, 5.4914, 3.9595, -0.769568, 9.4914, 9.4595, -0.769568, 9.4914, -4.7905, -0.769568, 9.4914, -4.7905, -0.769568, 5.4914, -5.2905, -0.769568, 5.2414, -9.2905, -0.769568, 9.4914)
@@ -120,3 +121,7 @@ end_position = Vector3(0, 0, -1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.860662, 0)
 shape = SubResource("ConcavePolygonShape3D_8jn3e")
+
+[node name="DocSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0966, 3.44676)
+script = ExtResource("5_bxgva")

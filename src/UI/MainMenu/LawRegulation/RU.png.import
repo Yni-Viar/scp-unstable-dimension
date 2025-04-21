@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccnlq2hm3wbsa"
-path="res://.godot/imported/back_button_disabled.png-d6c6cf146f124de1c4a0f508afa41534.ctex"
+uid="uid://du6sdov3jk50v"
+path="res://.godot/imported/RU.png-d0b072e7bd47005b9925f990b8cb65bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/back_button_disabled.png"
-dest_files=["res://.godot/imported/back_button_disabled.png-d6c6cf146f124de1c4a0f508afa41534.ctex"]
+source_file="res://UI/MainMenu/LawRegulation/RU.png"
+dest_files=["res://.godot/imported/RU.png-d0b072e7bd47005b9925f990b8cb65bd.ctex"]
 
 [params]
 
