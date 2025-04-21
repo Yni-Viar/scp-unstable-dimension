@@ -111,7 +111,12 @@ offset_left = -364.0
 offset_top = -648.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Map generation by Yni (the author).
+text = "Godot Engine:
+Copyright (c) 2014-present Godot Engine contributors 
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+Licensed under MIT License.
+-------------------------
+Map generation by Yni (the author).
 Room models (but not textures) by Yni (the author)
 -------------------------
 Camera Gimbal by kidscancode (MIT License).

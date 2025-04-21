@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="SCP: Unstable Dimension"
-config/version="1.0.1"
+config/version="1.0.2"
 config/tags=PackedStringArray("demo", "game", "singleplayer")
 run/main_scene="uid://b25hrjnoos5me"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="SCPUD"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
 boot_splash/image="uid://cg50ff386q63d"
 config/icon="uid://c7yat1lfp8emn"
 
