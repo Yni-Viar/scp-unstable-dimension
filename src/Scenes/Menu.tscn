@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b25hrjnoos5me"]
+[gd_scene load_steps=9 format=3 uid="uid://b25hrjnoos5me"]
 
 [ext_resource type="Script" uid="uid://nuv64h1g048i" path="res://Scripts/MainMenu.gd" id="1_3kf3n"]
-[ext_resource type="Texture2D" uid="uid://bwhjtd63gepeh" path="res://Assets/HUD/mainmenuwallpaper.png" id="2_ma218"]
+[ext_resource type="Texture2D" uid="uid://bwhjtd63gepeh" path="res://UI/MainMenu/mainmenuwallpaper.png" id="2_ma218"]
 [ext_resource type="Theme" uid="uid://1c7qxp1dlx5i" path="res://UITheme.tres" id="2_syfuq"]
-[ext_resource type="Texture2D" uid="uid://c2ajif8hexs2o" path="res://Assets/HUD/Godot/Play.svg" id="3_s2c3o"]
+[ext_resource type="Texture2D" uid="uid://cl0fdkqxf4660" path="res://Assets/HUD/Touch/playbutton.png" id="4_idohh"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="5_idohh"]
+[ext_resource type="Texture2D" uid="uid://b4x7oa8dlypky" path="res://Assets/HUD/Touch/lorebutton.png" id="5_wfhf6"]
+[ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://UI/back_button.png" id="7_3jcrr"]
+[ext_resource type="FontFile" uid="uid://l7x872d5amx8" path="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="8_aobxe"]
 
 [node name="Menu" type="Control"]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3kf3n")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.115
@@ -47,8 +51,22 @@ offset_bottom = 68.192
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_syfuq")
-icon = ExtResource("3_s2c3o")
-icon_alignment = 1
+texture_normal = ExtResource("4_idohh")
+
+[node name="Lore" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.222
+anchor_top = 0.79
+anchor_right = 0.222
+anchor_bottom = 0.79
+offset_left = -63.744
+offset_top = -63.92
+offset_right = 64.256
+offset_bottom = 64.08
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_wfhf6")
 
 [node name="Generate" type="Button" parent="."]
 visible = false
@@ -94,10 +112,15 @@ offset_top = -648.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Map generation by Yni (the author).
+Room models (but not textures) by Yni (the author)
+-------------------------
 Camera Gimbal by kidscancode (MIT License).
+-------------------------
 Scientist and guard models are made
 by PurpleGoop and rigged by DrPri
-Model and texture license - CC-BY-SA 4.0
+Room textures by Foodeater / Jamie
+Model and textures license - CC-BY-SA 4.0
+------------------------
 Crowbar and power generator models
 used from PolyHaven (All models on this
 website are CC0)"
@@ -136,5 +159,133 @@ theme_override_font_sizes/font_size = 64
 text = "SCP: Unstable
 Dimension"
 
+[node name="LawRegulation" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.5
+anchor_right = 0.167
+anchor_bottom = 0.5
+offset_left = -64.384
+offset_top = -68.0
+offset_right = 63.616
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LorePanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LorePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="BackButton" type="TextureButton" parent="LorePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("7_3jcrr")
+
+[node name="Label" type="Label" parent="LorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.049
+anchor_right = 0.5
+anchor_bottom = 0.049
+offset_left = -448.0
+offset_top = -31.752
+offset_right = 448.0
+offset_bottom = 32.248
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_aobxe")
+theme_override_font_sizes/font_size = 48
+text = "Lore pieces"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.198
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.304016
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LorePanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="LorePiece1" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Commander Eta: An XK happened! An XK happened!
+Commander Eta: We need to send our staff to the safe pocket dimensions.
+Lieutenant Mandel: If XK happened, it is already late.
+Commander Eta: Yes, the catastrophe is inevitable.
+Commander Eta: But as for now, people have chance by jumping into specially made pocket dimensions.
+Commander Eta: Our current task is to move these dimensions out of this corrupted world.
+Lieutenant Mandel: Got it."
+
+[node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LorePiece2" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Unknown: Activating dimension-wide rave virus, that will flood that world.
+Unknown: O5 should be responsible from that."
+
+[node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LorePiece3" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Researcher Carla: This dimension looks like... our Site.
+Researcher Martin: I think, they are not so safe, as it seems.
+Reseacrher Carla: Maybe. But we did not see any threats.
+*noise*
+Researcher Martin: *angrily* I was right. There are some Chaos Insurgents wandering here.
+Researcher Martin: Hide out!"
+
+[node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Lore" to="." method="_on_lore_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="LorePanel/BackButton" to="." method="_on_lore_back_button_pressed"]

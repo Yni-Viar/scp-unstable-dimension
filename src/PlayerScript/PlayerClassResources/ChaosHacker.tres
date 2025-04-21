@@ -19,5 +19,5 @@ apply_height_bugfix = false
 enable_wander = true
 health = Array[float]([100.0, 10.0])
 team = 0
-enable_avoidance = false
+enable_avoidance = true
 spawn_on_start = false

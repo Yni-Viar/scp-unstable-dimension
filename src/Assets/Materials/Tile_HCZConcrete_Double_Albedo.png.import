@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djonud5j5gx8m"
 path.s3tc="res://.godot/imported/Tile_HCZConcrete_Double_Albedo.png-972c37190452975faaff2da0a3838837.s3tc.ctex"
+path.etc2="res://.godot/imported/Tile_HCZConcrete_Double_Albedo.png-972c37190452975faaff2da0a3838837.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Materials/Tile_HCZConcrete_Double_Albedo.png"
-dest_files=["res://.godot/imported/Tile_HCZConcrete_Double_Albedo.png-972c37190452975faaff2da0a3838837.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tile_HCZConcrete_Double_Albedo.png-972c37190452975faaff2da0a3838837.s3tc.ctex", "res://.godot/imported/Tile_HCZConcrete_Double_Albedo.png-972c37190452975faaff2da0a3838837.etc2.ctex"]
 
 [params]
 

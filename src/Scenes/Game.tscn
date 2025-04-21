@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://d0tlgr0c6w7gq" path="res://MapGen/MapGenZone.gd" id="4_bf53h"]
 [ext_resource type="Resource" uid="uid://7prvjngodfs1" path="res://MapGen/test3D.tres" id="5_71axn"]
 [ext_resource type="Script" uid="uid://brnmrs6xlpyic" path="res://Scripts/UI.gd" id="6_dahhg"]
-[ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://Assets/HUD/Touch/back_button.png" id="7_fgofq"]
+[ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://UI/back_button.png" id="7_fgofq"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="9_bf53h"]
 [ext_resource type="Texture2D" uid="uid://dkgyet63cgaaa" path="res://Assets/HUD/healthbar.png" id="10_71axn"]
 [ext_resource type="AudioStream" uid="uid://0gapate5fity" path="res://Sounds/Music/lcz_ambient.ogg" id="11_dahhg"]
@@ -29,6 +29,7 @@ border_width_bottom = 2
 border_color = Color(0.8, 0.8, 0.360784, 1)
 
 [node name="Game" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_7lihs")
 gamedata = ExtResource("2_fgofq")
 

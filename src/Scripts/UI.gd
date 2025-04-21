@@ -1,5 +1,7 @@
 extends Control
 
+var exiting: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,7 +10,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 
 
 #func _on_seed_text_changed(new_text):
@@ -24,4 +25,9 @@ func _process(delta):
 
 
 func _on_back_pressed() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Menu.tscn")
+	if get_tree().paused:
+		get_tree().paused = false
+	var menu: Node = load("res://Scenes/Menu.tscn").instantiate()
+	get_tree().root.add_child(menu)
+	get_tree().current_scene = menu
+	get_tree().root.get_node("Game").queue_free()

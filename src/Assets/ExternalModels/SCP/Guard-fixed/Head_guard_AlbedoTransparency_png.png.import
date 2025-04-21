@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0kq6qrvvjitw"
 path.s3tc="res://.godot/imported/Head_guard_AlbedoTransparency_png.png-14f56193120081130a46664b6b172070.s3tc.ctex"
+path.etc2="res://.godot/imported/Head_guard_AlbedoTransparency_png.png-14f56193120081130a46664b6b172070.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/ExternalModels/SCP/Guard-fixed/Head_guard_AlbedoTransparency_png.png"
-dest_files=["res://.godot/imported/Head_guard_AlbedoTransparency_png.png-14f56193120081130a46664b6b172070.s3tc.ctex"]
+dest_files=["res://.godot/imported/Head_guard_AlbedoTransparency_png.png-14f56193120081130a46664b6b172070.s3tc.ctex", "res://.godot/imported/Head_guard_AlbedoTransparency_png.png-14f56193120081130a46664b6b172070.etc2.ctex"]
 
 [params]
 
