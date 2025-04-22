@@ -58,3 +58,15 @@ func save_resource(res):
 
 func is_legal_req() -> bool:
 	return LEGAL_REQ_REGIONS.has(region)
+
+## https://docs.godotengine.org/en/latest/tutorials/scripting/pausing_games.html comment by Spekel
+func set_pause_subtree(pause: bool) -> void:
+	var process_setters = ["set_process",
+	"set_physics_process",
+	"set_process_input",
+	"set_process_unhandled_input",
+	"set_process_unhandled_key_input",
+	"set_process_shortcut_input",]
+	
+	for setter in process_setters:
+		get_tree().root.propagate_call(setter, [!pause])

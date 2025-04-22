@@ -10,7 +10,6 @@
 [ext_resource type="FontFile" uid="uid://l7x872d5amx8" path="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="8_aobxe"]
 
 [node name="Menu" type="Control"]
-process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

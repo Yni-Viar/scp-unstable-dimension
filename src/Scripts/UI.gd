@@ -25,8 +25,7 @@ func _process(delta):
 
 
 func _on_back_pressed() -> void:
-	if get_tree().paused:
-		get_tree().paused = false
+	Settings.set_pause_subtree(false)
 	var menu: Node = load("res://Scenes/Menu.tscn").instantiate()
 	get_tree().root.add_child(menu)
 	get_tree().current_scene = menu

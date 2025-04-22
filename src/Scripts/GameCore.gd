@@ -83,7 +83,7 @@ func finish_game(good_end: bool):
 	$UI/Condition/ConditionLabel.text = "YOU WIN" if good_end else "YOU LOSE"
 	$UI/Condition.show()
 	$GameOverTimer.stop()
-	get_tree().paused = true
+	Settings.set_pause_subtree(true)
 
 
 func _on_game_over_timer_timeout() -> void:
