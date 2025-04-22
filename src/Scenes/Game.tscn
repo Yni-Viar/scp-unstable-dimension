@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6l8r5fy0ymqt"]
+[gd_scene load_steps=17 format=3 uid="uid://6l8r5fy0ymqt"]
 
 [ext_resource type="Script" uid="uid://k3xvlffr17rf" path="res://Scripts/GameCore.gd" id="1_7lihs"]
 [ext_resource type="Resource" uid="uid://kakqpi6wi07u" path="res://Scripts/GameData/DefaultGame.tres" id="2_fgofq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://brnmrs6xlpyic" path="res://Scripts/UI.gd" id="6_dahhg"]
 [ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://UI/back_button.png" id="7_fgofq"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="9_bf53h"]
+[ext_resource type="Theme" uid="uid://1c7qxp1dlx5i" path="res://UITheme.tres" id="10_3so38"]
 [ext_resource type="Texture2D" uid="uid://dkgyet63cgaaa" path="res://Assets/HUD/healthbar.png" id="10_71axn"]
 [ext_resource type="AudioStream" uid="uid://0gapate5fity" path="res://Sounds/Music/lcz_ambient.ogg" id="11_dahhg"]
 
@@ -18,6 +19,17 @@ ambient_light_source = 2
 ambient_light_color = Color(0.404511, 0.404511, 0.404511, 1)
 ambient_light_energy = 4.0
 glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cx6b"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71axn"]
 bg_color = Color(0, 0, 0, 1)
@@ -77,6 +89,7 @@ offset_right = 384.0
 offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3cx6b")
 
 [node name="ConditionLabel" type="Label" parent="UI/Condition"]
 layout_mode = 1
@@ -109,6 +122,7 @@ offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 localize_numeral_system = false
+theme = ExtResource("10_3so38")
 text = "BACK TO MENU"
 
 [node name="TimeToLeft" type="Label" parent="UI"]
@@ -144,14 +158,14 @@ anchor_left = 0.149
 anchor_top = 0.888
 anchor_right = 0.149
 anchor_bottom = 0.888
-offset_left = -147.648
-offset_top = -15.4241
-offset_right = 148.352
-offset_bottom = 15.5759
+offset_left = -155.648
+offset_top = -7.42401
+offset_right = 140.352
+offset_bottom = 23.576
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("9_bf53h")
+theme_override_font_sizes/font_size = 24
 text = "Pan Janusz"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HealthIcon" type="TextureRect" parent="UI"]
