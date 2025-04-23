@@ -18,7 +18,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !$GameOverTimer.is_stopped():
-		$UI/TimeToLeft.text = "SECONDS LEFT: " + str(ceili($GameOverTimer.time_left))
+		$UI/Tasks/TimeToLeft.text = "SECONDS LEFT: " + str(ceili($GameOverTimer.time_left))
+		$UI/Tasks/GeneratorsToActivate.text = "GENERATORS LEFT: " + str(activated_generators)
 		if ceili($GameOverTimer.time_left) == 110 && !enemy_spawned:
 			spawn_enemies()
 			enemy_spawned = true
