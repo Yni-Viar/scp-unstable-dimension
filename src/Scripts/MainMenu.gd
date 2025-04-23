@@ -33,7 +33,7 @@ func _on_play_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	$CreditsLabel.visible = $Credits.button_pressed
+	$CreditsContainer.visible = $Credits.button_pressed
 
 
 func _on_lore_pressed() -> void:

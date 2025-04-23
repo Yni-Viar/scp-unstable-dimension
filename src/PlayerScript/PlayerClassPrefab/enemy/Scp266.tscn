@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bijlxmhkoeyga"]
+
+[ext_resource type="Script" uid="uid://dq4uhsudcndna" path="res://PlayerScript/PlayerClassScript/Scp266PuppetScript.gd" id="1_8ulql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8arb"]
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.560784, 0.368627, 0.870588, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ycmk2"]
+material = SubResource("StandardMaterial3D_o8arb")
+radius = 0.061
+height = 0.125
+radial_segments = 4
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8ulql"]
+radius = 16.0
+
+[node name="Puppet" type="Node3D"]
+script = ExtResource("1_8ulql")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 64
+lifetime = 0.05
+mesh = SubResource("SphereMesh_ycmk2")
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+
+[node name="WarmDetector" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WarmDetector"]
+shape = SubResource("SphereShape3D_8ulql")
+
+[connection signal="body_entered" from="WarmDetector" to="." method="_on_warm_detector_body_entered"]
+[connection signal="body_exited" from="WarmDetector" to="." method="_on_warm_detector_body_exited"]

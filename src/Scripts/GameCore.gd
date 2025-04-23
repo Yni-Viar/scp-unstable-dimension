@@ -55,12 +55,24 @@ func spawn_puppets():
 			gen_spawns[j].add_child(generator)
 			activated_generators += 1
 	all_generators = activated_generators
+	var neutral_puppet_rand: int = rng.randi_range(-1, gamedata.neutral_puppet_class.size() - 1)
+	if neutral_puppet_rand != -1:
+		var npc: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
+		npc.puppet_class = gamedata.neutral_puppet_class[neutral_puppet_rand]
+		get_tree().get_first_node_in_group("NeutralEntitySpawn").add_child(npc)
 
 func spawn_enemies():
 	if gamedata.enemy_puppet_class.size() > 0:
-		spawn_enemy_entity(rng.randi_range(2, 3))#, rng.randi_range(0, gamedata.enemy_puppet_class.size() - 1))
+		spawn_enemy_entity()
 
-func spawn_enemy_entity(how_much_spawn: int):
+func spawn_enemy_entity():
+	var enemy_type: int = rng.randi_range(0, 1)
+	var how_much_spawn: int = -1
+	match enemy_type:
+		0: # Chaos Insurgency
+			how_much_spawn = rng.randi_range(2, 3)
+		1: # SCP-266
+			how_much_spawn = 1
 	var spawn = get_tree().get_first_node_in_group("EnemySpawn")
 	for i in range(how_much_spawn):
 		var vfxspawn = load("res://Assets/VFX/enemyspawnvfx.tscn").instantiate()
@@ -68,9 +80,12 @@ func spawn_enemy_entity(how_much_spawn: int):
 	await get_tree().create_timer(1.0).timeout
 	for i in range(how_much_spawn):
 		var enemy: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
-		# Temporary workaround, since all enemies are chaos insurgency
-		# Second chaos isurgent is always hacker, others are troopers
-		enemy.puppet_class = gamedata.enemy_puppet_class[0 if i != 1 else 1]
+		match enemy_type:
+			0: # Chaos Insurgency
+				# Second chaos isurgent is always hacker, others are troopers
+				enemy.puppet_class = gamedata.enemy_puppet_class[0 if i != 1 else 1]
+			1: # SCP-266
+				enemy.puppet_class = gamedata.enemy_puppet_class[2]
 		#enemy.puppet_class = gamedata.enemy_puppet_class[class_id]
 		spawn.get_child(i).add_child(enemy)
 	for i in range(how_much_spawn):

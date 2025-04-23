@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PuppetClass" load_steps=3 format=3 uid="uid://4mdgfhansx8s"]
+
+[ext_resource type="PackedScene" uid="uid://bijlxmhkoeyga" path="res://PlayerScript/PlayerClassPrefab/enemy/Scp266.tscn" id="2_rj2b1"]
+[ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="3_x2edw"]
+
+[resource]
+script = ExtResource("3_x2edw")
+puppet_class_name = "SCP-266"
+speed = 20.0
+prefab = ExtResource("2_rj2b1")
+spawn_point_group = "Scp266Spawn"
+automatic = false
+footstep_sounds = {}
+fraction = 1
+apply_height_bugfix = false
+enable_wander = true
+health = Array[float]([1200.0])
+team = 0
+enable_avoidance = false
+spawn_on_start = false

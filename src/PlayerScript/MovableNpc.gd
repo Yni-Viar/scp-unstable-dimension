@@ -199,7 +199,7 @@ func health_manage(health_to_add: float, health_type: int = 0):
 	
 	if current_health[health_type] <= 0:
 		# Remove one live
-		get_tree().root.get_node("Game").lives.pop_front().queue_free()
+		queue_free()
 
 ## Target follow target position setter.
 func target_follow():

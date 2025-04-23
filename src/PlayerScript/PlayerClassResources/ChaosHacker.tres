@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="PuppetClass" load_steps=3 format=3 uid="uid://c57023ahp78on"]
 
 [ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="1_6w0u8"]
-[ext_resource type="PackedScene" uid="uid://dlpv1cjfb00lc" path="res://PlayerScript/PlayerClassPrefab/enemy/chaos_hacker.tscn" id="1_qbqu1"]
+[ext_resource type="PackedScene" uid="uid://dlpv1cjfb00lc" path="res://PlayerScript/PlayerClassPrefab/enemy/ChaosHacker.tscn" id="1_qbqu1"]
+
 
 [resource]
 script = ExtResource("1_6w0u8")

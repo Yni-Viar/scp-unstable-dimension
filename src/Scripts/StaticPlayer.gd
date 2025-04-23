@@ -57,7 +57,6 @@ func intersect() -> Dictionary:
 	var origin = $Head/Camera3D.project_ray_origin(mousepos)
 	var end = origin + $Head/Camera3D.project_ray_normal(mousepos) * RAY_LENGTH
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.collide_with_areas = true
 
 	return space_state.intersect_ray(query)
 
@@ -66,4 +65,6 @@ func interact(value: String) -> void:
 		"Point":
 			var result: Dictionary = intersect()
 			if result.keys().size() > 0:
+				if get_node_or_null(target_puppet_path) == null:
+					get_tree().root.get_node("Game").finish_game(false)
 				get_node(target_puppet_path).set_target_position(result["position"], true)

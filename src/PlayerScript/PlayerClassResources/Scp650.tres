@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PuppetClass" load_steps=3 format=3 uid="uid://b78x487lxutqy"]
+
+[ext_resource type="PackedScene" uid="uid://bj1cu304tkb42" path="res://PlayerScript/PlayerClassPrefab/neutral/scp650.tscn" id="1_oww2b"]
+[ext_resource type="Script" uid="uid://d08svv1nclb1r" path="res://PlayerScript/PlayerClassResources/PuppetResource.gd" id="2_g8omf"]
+
+[resource]
+script = ExtResource("2_g8omf")
+puppet_class_name = "SCP-650"
+speed = 0.0
+prefab = ExtResource("1_oww2b")
+spawn_point_group = "Scp650Spawn"
+automatic = true
+footstep_sounds = {}
+fraction = 2
+apply_height_bugfix = false
+enable_wander = false
+health = Array[float]([1000.0])
+team = 0
+enable_avoidance = true
+spawn_on_start = true

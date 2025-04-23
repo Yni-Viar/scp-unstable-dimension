@@ -108,3 +108,6 @@ shape = SubResource("ConcavePolygonShape3D_266ir")
 
 [node name="GeneratorSpawn" type="Marker3D" parent="." groups=["GeneratorSpawn"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0124636, 1.69374, -6.93311)
+
+[node name="entityspawn" type="Marker3D" parent="." groups=["NeutralEntitySpawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24, -1.81842)
