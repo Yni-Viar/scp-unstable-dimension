@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://15w7wu7asqea"]
 
-[ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/Walls.tres" id="1_in1nt"]
-[ext_resource type="Material" uid="uid://drdixxgiv4gv4" path="res://Assets/Materials/Ceiling.tres" id="2_bxgva"]
-[ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/Floor.tres" id="3_gkhkg"]
+[ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/EvacuationShelter/Walls.tres" id="1_in1nt"]
+[ext_resource type="Material" uid="uid://drdixxgiv4gv4" path="res://Assets/Materials/EvacuationShelter/Ceiling.tres" id="2_bxgva"]
+[ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/EvacuationShelter/Floor.tres" id="3_gkhkg"]
 [ext_resource type="PackedScene" uid="uid://d2lho474tfbe4" path="res://Assets/OriginalModels/table.tscn" id="4_in18y"]
 [ext_resource type="Script" uid="uid://dxacesn4a1lyf" path="res://Scripts/DocSpawner.gd" id="5_bxgva"]
 

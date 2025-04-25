@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://b25hrjnoos5me"]
+[gd_scene load_steps=11 format=3 uid="uid://b25hrjnoos5me"]
 
 [ext_resource type="Script" uid="uid://nuv64h1g048i" path="res://Scripts/MainMenu.gd" id="1_3kf3n"]
 [ext_resource type="Texture2D" uid="uid://bwhjtd63gepeh" path="res://UI/MainMenu/mainmenuwallpaper.png" id="2_ma218"]
 [ext_resource type="Theme" uid="uid://1c7qxp1dlx5i" path="res://UITheme.tres" id="2_syfuq"]
-[ext_resource type="Texture2D" uid="uid://cl0fdkqxf4660" path="res://Assets/HUD/Touch/playbutton.png" id="4_idohh"]
+[ext_resource type="Texture2D" uid="uid://cl0fdkqxf4660" path="res://UI/playbutton.png" id="4_idohh"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="5_idohh"]
-[ext_resource type="Texture2D" uid="uid://b4x7oa8dlypky" path="res://Assets/HUD/Touch/lorebutton.png" id="5_wfhf6"]
+[ext_resource type="Texture2D" uid="uid://b4x7oa8dlypky" path="res://UI/lorebutton.png" id="5_wfhf6"]
+[ext_resource type="Texture2D" uid="uid://d3ufwoaxsmldg" path="res://UI/customplaybutton.png" id="6_ab40c"]
 [ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://UI/back_button.png" id="7_3jcrr"]
 [ext_resource type="FontFile" uid="uid://l7x872d5amx8" path="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="8_aobxe"]
+[ext_resource type="Script" uid="uid://djtevkjibxudq" path="res://Scripts/CustomGamePanel.gd" id="9_aobxe"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -67,45 +69,32 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_wfhf6")
 
-[node name="Generate" type="Button" parent="."]
-visible = false
+[node name="CustomPlay" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -82.5
-offset_top = -33.0
-offset_right = 82.5
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.79
+anchor_right = 0.333
+anchor_bottom = 0.79
+offset_left = -63.616
+offset_top = -63.92
+offset_right = 64.384
+offset_bottom = 64.08
 grow_horizontal = 2
-grow_vertical = 0
-text = "Generate map"
-
-[node name="Seed" type="LineEdit" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -72.0
-offset_right = 80.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 0
-placeholder_text = "Seed"
+grow_vertical = 2
+texture_normal = ExtResource("6_ab40c")
 
 [node name="CreditsContainer" type="ScrollContainer" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.611
-anchor_right = 1.0
+anchor_top = 0.099
+anchor_right = 1.007
 anchor_bottom = 1.0
 offset_left = 0.127991
+offset_top = -0.152008
+offset_right = -8.06409
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("2_syfuq")
@@ -143,17 +132,14 @@ vertical_alignment = 1
 
 [node name="Credits" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -72.0
-offset_right = 64.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 48.0
+grow_horizontal = 0
 theme = ExtResource("2_syfuq")
 toggle_mode = true
 text = "CREDITS"
@@ -318,7 +304,262 @@ offset_top = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="CustomGamePanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_aobxe")
+
+[node name="ColorRect" type="ColorRect" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="BackButton" type="TextureButton" parent="CustomGamePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("7_3jcrr")
+
+[node name="PlayCustom" type="Button" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.846
+anchor_right = 0.502
+anchor_bottom = 0.846
+offset_left = -82.304
+offset_top = -28.208
+offset_right = 82.696
+offset_bottom = 28.792
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_syfuq")
+text = "Play"
+
+[node name="Seed" type="LineEdit" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.222
+anchor_top = 0.272
+anchor_right = 0.222
+anchor_bottom = 0.272
+offset_left = -191.744
+offset_top = -24.256
+offset_right = 192.256
+offset_bottom = 23.744
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_syfuq")
+placeholder_text = "Map Generator seed"
+
+[node name="EnemyType" type="OptionButton" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.409
+anchor_right = 0.167
+anchor_bottom = 0.409
+offset_left = -128.384
+offset_top = -17.032
+offset_right = 127.616
+offset_bottom = 16.968
+theme = ExtResource("2_syfuq")
+selected = 1
+item_count = 3
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Chaos Insurgency"
+popup/item_1/id = 1
+popup/item_2/text = "SCP-266"
+popup/item_2/id = 2
+
+[node name="FacilityMap" type="OptionButton" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.557
+anchor_right = 0.625
+anchor_bottom = 0.557
+offset_left = -128.0
+offset_top = -16.936
+offset_right = 128.0
+offset_bottom = 17.064
+theme = ExtResource("2_syfuq")
+selected = 0
+item_count = 2
+popup/item_0/text = "Evacuation Shelter"
+popup/item_0/id = 0
+popup/item_1/text = "Maintenance Tunnels"
+popup/item_1/id = 1
+
+[node name="ChaosAmount" type="HSlider" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.562
+anchor_right = 0.167
+anchor_bottom = 0.562
+offset_left = -128.384
+offset_top = -12.176
+offset_right = 127.616
+offset_bottom = 11.824
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_syfuq")
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+
+[node name="GeneratorAmount" type="HSlider" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.302
+anchor_right = 0.625
+anchor_bottom = 0.302
+offset_left = -128.0
+offset_top = -11.696
+offset_right = 128.0
+offset_bottom = 12.304
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_syfuq")
+min_value = 2.0
+max_value = 4.0
+value = 2.0
+
+[node name="AdditionalLives" type="HSlider" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.685
+anchor_right = 0.625
+anchor_bottom = 0.685
+offset_left = -128.0
+offset_top = -11.88
+offset_right = 128.0
+offset_bottom = 12.12
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_syfuq")
+max_value = 2.0
+value = 2.0
+
+[node name="SpawnNeutralNpcs" type="CheckBox" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.622
+anchor_top = 0.426
+anchor_right = 0.622
+anchor_bottom = 0.426
+offset_left = -132.544
+offset_top = -28.048
+offset_right = 131.456
+offset_bottom = 19.952
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_syfuq")
+button_pressed = true
+text = "Spawn neutral NPCs"
+
+[node name="Label" type="Label" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.525
+anchor_right = 0.167
+anchor_bottom = 0.525
+offset_left = -128.384
+offset_top = -12.2
+offset_right = 127.616
+offset_bottom = 11.8
+grow_horizontal = 2
+grow_vertical = 2
+text = "Chaos Insurgency amount"
+
+[node name="Label2" type="Label" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.363
+anchor_right = 0.167
+anchor_bottom = 0.363
+offset_left = -128.384
+offset_top = -11.224
+offset_right = 127.616
+offset_bottom = 11.776
+text = "Enemy type"
+
+[node name="Label6" type="Label" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.363
+anchor_right = 0.167
+anchor_bottom = 0.363
+offset_left = 399.616
+offset_top = 76.776
+offset_right = 655.616
+offset_bottom = 99.776
+text = "Facility map"
+
+[node name="Label3" type="Label" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.642
+anchor_right = 0.5
+anchor_bottom = 0.642
+offset_left = -528.0
+offset_top = -32.016
+offset_right = -230.0
+offset_bottom = 47.984
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Note, that the second Chaos Insurgent
+is a Hacker, while the rest ones are
+Troopers."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.265
+anchor_right = 0.625
+anchor_bottom = 0.265
+offset_left = -128.0
+offset_top = -11.72
+offset_right = 128.0
+offset_bottom = 12.28
+text = "Generator amount"
+
+[node name="Label5" type="Label" parent="CustomGamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.648
+anchor_right = 0.625
+anchor_bottom = 0.648
+offset_left = -128.0
+offset_top = -11.904
+offset_right = 128.0
+offset_bottom = 12.096
+text = "Additional lives"
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Lore" to="." method="_on_lore_pressed"]
+[connection signal="pressed" from="CustomPlay" to="." method="_on_custom_play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="LorePanel/BackButton" to="." method="_on_lore_back_button_pressed"]
+[connection signal="pressed" from="CustomGamePanel/BackButton" to="." method="_on_customplay_back_button_pressed"]
+[connection signal="pressed" from="CustomGamePanel/PlayCustom" to="CustomGamePanel" method="_on_play_custom_pressed"]

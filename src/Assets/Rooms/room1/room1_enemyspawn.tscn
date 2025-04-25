@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b61wqoib0cvdy"]
+[gd_scene load_steps=9 format=4 uid="uid://bkowm0tdaue6k"]
 
 [ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/Walls.tres" id="1_cjopd"]
 [ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/Floor.tres" id="2_6d41h"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://dqv8si71mg1rd"]
+[gd_scene load_steps=11 format=4 uid="uid://btmgpryvcx8yw"]
 
 [ext_resource type="Script" uid="uid://do5uqqjuwrgqp" path="res://Scripts/EscapeRoom.gd" id="1_dqatq"]
-[ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/Walls.tres" id="1_q2ghg"]
-[ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/Floor.tres" id="2_dqatq"]
-[ext_resource type="Material" uid="uid://drdixxgiv4gv4" path="res://Assets/Materials/Ceiling.tres" id="3_7g1mj"]
+[ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/EvacuationShelter/Walls.tres" id="1_q2ghg"]
+[ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/EvacuationShelter/Floor.tres" id="2_dqatq"]
+[ext_resource type="Material" uid="uid://drdixxgiv4gv4" path="res://Assets/Materials/EvacuationShelter/Ceiling.tres" id="3_7g1mj"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wojje"]
 vertices = PackedVector3Array(-3.4158, -0.769568, 6.92558, -3.4158, -0.769568, 9.67558, 3.3342, -0.769568, 9.67558, 3.3342, -0.769568, 6.92558, -6.6658, -0.769568, 3.92558, 6.8342, -0.769568, 3.67558, 6.8342, -0.769568, -3.32442, -6.6658, -0.769568, -3.32442)

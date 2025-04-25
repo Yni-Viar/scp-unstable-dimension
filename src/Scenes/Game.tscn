@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bu7shnqhd7um8" path="res://MapGen/MapGen3D.gd" id="3_2irst"]
 [ext_resource type="PackedScene" uid="uid://by5c7g15ljuta" path="res://PlayerScript/static_player.tscn" id="3_bf53h"]
 [ext_resource type="Script" uid="uid://d0tlgr0c6w7gq" path="res://MapGen/MapGenZone.gd" id="4_bf53h"]
-[ext_resource type="Resource" uid="uid://7prvjngodfs1" path="res://MapGen/test3D.tres" id="5_71axn"]
+[ext_resource type="Resource" uid="uid://7prvjngodfs1" path="res://MapGen/EvacuationShelter.tres" id="5_71axn"]
 [ext_resource type="Script" uid="uid://brnmrs6xlpyic" path="res://Scripts/UI.gd" id="6_dahhg"]
 [ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://UI/back_button.png" id="7_fgofq"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="9_bf53h"]
@@ -50,6 +50,7 @@ gamedata = ExtResource("2_fgofq")
 [node name="FacilityGenerator" type="Node3D" parent="."]
 script = ExtResource("3_2irst")
 rooms = Array[ExtResource("4_bf53h")]([ExtResource("5_71axn")])
+large_rooms = true
 enable_door_generation = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

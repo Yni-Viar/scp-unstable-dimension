@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="MapGenZone" load_steps=13 format=3 uid="uid://dtd6pwanbhy7j"]
+
+[ext_resource type="Script" uid="uid://b15b7mhits7ot" path="res://MapGen/MapGenRoom.gd" id="1_2euw7"]
+[ext_resource type="Resource" uid="uid://baskn56ygmotl" path="res://MapGen/Resources/MaintenanceTunnels/room2C.tres" id="2_bt36h"]
+[ext_resource type="Resource" uid="uid://d0so8w0byu3rf" path="res://MapGen/Resources/MaintenanceTunnels/room4.tres" id="3_8nfe0"]
+[ext_resource type="Resource" uid="uid://d0en6563qst02" path="res://MapGen/Resources/MaintenanceTunnels/room1.tres" id="4_3un6p"]
+[ext_resource type="Resource" uid="uid://bgvcokfa5iie5" path="res://MapGen/Resources/MaintenanceTunnels/room1_playerspawn.tres" id="5_2euw7"]
+[ext_resource type="Resource" uid="uid://cqwb2gvokn8py" path="res://MapGen/Resources/MaintenanceTunnels/room1_exit.tres" id="6_wuaeh"]
+[ext_resource type="Resource" uid="uid://dono4gohw0a7e" path="res://MapGen/Resources/MaintenanceTunnels/room1_enemyspawn.tres" id="7_gdhi3"]
+[ext_resource type="Resource" uid="uid://b8nunhoctnwl6" path="res://MapGen/Resources/MaintenanceTunnels/room1_special.tres" id="8_wye1y"]
+[ext_resource type="Resource" uid="uid://ch0bxsompxx5d" path="res://MapGen/Resources/MaintenanceTunnels/room2_walkway.tres" id="9_bt36h"]
+[ext_resource type="Resource" uid="uid://c28c54bngkuhi" path="res://MapGen/Resources/MaintenanceTunnels/room2.tres" id="10_18noc"]
+[ext_resource type="Resource" uid="uid://0d70qmpl37gq" path="res://MapGen/Resources/MaintenanceTunnels/room3.tres" id="12_phv2b"]
+[ext_resource type="Script" uid="uid://d0tlgr0c6w7gq" path="res://MapGen/MapGenZone.gd" id="13_icpll"]
+
+[resource]
+script = ExtResource("13_icpll")
+endrooms = Array[ExtResource("1_2euw7")]([ExtResource("4_3un6p")])
+endrooms_single = Array[ExtResource("1_2euw7")]([ExtResource("5_2euw7"), ExtResource("6_wuaeh"), ExtResource("7_gdhi3")])
+endrooms_single_large = Array[ExtResource("1_2euw7")]([ExtResource("8_wye1y")])
+hallways = Array[ExtResource("1_2euw7")]([ExtResource("9_bt36h")])
+hallways_single = Array[ExtResource("1_2euw7")]([ExtResource("10_18noc")])
+checkpoint_hallway = Array[ExtResource("1_2euw7")]([])
+hallways_single_large = Array[ExtResource("1_2euw7")]([])
+corners = Array[ExtResource("1_2euw7")]([ExtResource("2_bt36h")])
+corners_single = Array[ExtResource("1_2euw7")]([])
+corners_single_large = Array[ExtResource("1_2euw7")]([])
+trooms = Array[ExtResource("1_2euw7")]([ExtResource("12_phv2b")])
+trooms_single = Array[ExtResource("1_2euw7")]([])
+trooms_single_large = Array[ExtResource("1_2euw7")]([])
+crossrooms = Array[ExtResource("1_2euw7")]([ExtResource("3_8nfe0")])
+crossrooms_single = Array[ExtResource("1_2euw7")]([])
+door_frames = Array[PackedScene]([])
+checkpoint_door_frames = Array[PackedScene]([])

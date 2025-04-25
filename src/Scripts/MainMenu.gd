@@ -26,10 +26,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	var game: Node = load("res://Scenes/Game.tscn").instantiate()
-	get_tree().root.add_child(game)
-	get_tree().current_scene = game
-	get_tree().root.get_node("Menu").queue_free()
+	play()
 
 
 func _on_credits_pressed() -> void:
@@ -42,3 +39,31 @@ func _on_lore_pressed() -> void:
 
 func _on_lore_back_button_pressed() -> void:
 	$LorePanel.hide()
+
+func play(mapgen_seed: int = -1, enemy_type: int = -1, generator_amount: int = -1, chaos_amount: int = -1, spawn_neutral_npc: int = -1, additional_lives: int = -1, facility_id: int = -1):
+	var game: GameCore = load("res://Scenes/Game.tscn").instantiate()
+	if mapgen_seed >= 0:
+		game.map_seed = mapgen_seed
+	if generator_amount >= 0:
+		game.all_generators = generator_amount
+	if enemy_type >= 0:
+		game.enemy_type = enemy_type
+	if spawn_neutral_npc >= 0:
+		game.spawn_neutral_npcs = spawn_neutral_npc
+	if chaos_amount >= 0:
+		game.chaos_amount = chaos_amount
+	if additional_lives >= 0:
+		game.additional_lives = additional_lives
+	if facility_id >= 0:
+		game.choosed_map = facility_id
+	get_tree().root.add_child(game)
+	get_tree().current_scene = game
+	get_tree().root.get_node("Menu").queue_free()
+
+
+func _on_custom_play_pressed() -> void:
+	$CustomGamePanel.show()
+
+
+func _on_customplay_back_button_pressed() -> void:
+	$CustomGamePanel.hide()
