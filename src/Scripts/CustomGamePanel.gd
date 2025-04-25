@@ -12,4 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_custom_pressed() -> void:
-	get_parent().play(hash($Seed.text), $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected)
+	if !$Seed.text.is_empty():
+		get_parent().play(hash($Seed.text), $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected)
+	else:
+		get_parent().play(-1, $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected)

@@ -233,7 +233,7 @@ layout_mode = 2
 [node name="LorePiece1" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-text = "Commander Eta: An XK happened! An XK happened!
+text = "Announcer: An XK happened! An XK happened!
 Commander Eta: We need to send our staff to the safe pocket dimensions.
 Lieutenant Mandel: If XK happened, it is already late.
 Commander Eta: Yes, the catastrophe is inevitable.
@@ -254,7 +254,7 @@ grow_vertical = 0
 [node name="LorePiece2" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-text = "Unknown: Activating dimension-wide rave virus, that will flood that world.
+text = "Unknown: Activating dimension-wide corruption virus, that will flood that world.
 Unknown: O5 should be responsible from that."
 
 [node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece2"]
@@ -271,7 +271,7 @@ grow_vertical = 0
 visible = false
 layout_mode = 2
 text = "Researcher Carla: This dimension looks like... our Site.
-Researcher Martin: I think, they are not so safe, as it seems.
+Researcher Martin: I think, it is not so safe, as it seems.
 Reseacrher Carla: Maybe. But we did not see any threats.
 *noise*
 Researcher Martin: *angrily* I was right. There are some Chaos Insurgents wandering here.
@@ -292,9 +292,27 @@ visible = false
 layout_mode = 2
 text = "Agent John: It is so cold...
 Researcher James: Looks like there is SCP-266 nearby.
-Agent John: I know that purple gas creature... Bou how it entered this dimension?"
+Agent John: I know that purple gas creature... But how it entered this dimension?"
 
 [node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LorePiece5" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Agent Richard: WHY THIS THING APPEARED HERE?! I WAS JUST LOOKING AROUND!!!
+Researcher Jim: Don't worry, it is SCP-650.
+Researcher Jim: Don't panic, it should disappear if we both close our eyes.
+Researcher Jim: But why is it there?... it is an interesting question..."
+
+[node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece5"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
