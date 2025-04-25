@@ -80,7 +80,7 @@ func spawn_puppets():
 			get_tree().get_first_node_in_group("NeutralEntitySpawn").add_child(npc)
 
 func spawn_enemies():
-	if gamedata.enemy_puppet_class.size() > 0:
+	if gamedata.enemy_puppet_class.size() > 0 && get_tree().get_node_count_in_group("EnemySpawn") > 0:
 		spawn_enemy_entity()
 
 func spawn_enemy_entity():
