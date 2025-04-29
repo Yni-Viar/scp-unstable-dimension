@@ -1,4 +1,5 @@
 extends Control
+## Made by Yni, licensed under MIT License.
 
 var exiting: bool = false
 

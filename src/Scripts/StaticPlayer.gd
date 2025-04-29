@@ -1,4 +1,6 @@
 extends Node3D
+## Static player
+## Made by Yni, licensed under MIT License.
 class_name StaticPlayer
 
 var mouse_sensitivity = 0.03125
@@ -50,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			get_tree().root.get_node("Game/UI/HealthBar").value = get_node(target_puppet_path).current_health[0]
 
+## Used from Godot Docs
 func intersect() -> Dictionary:
 	var space_state = get_world_3d().direct_space_state
 	var mousepos = get_viewport().get_mouse_position()

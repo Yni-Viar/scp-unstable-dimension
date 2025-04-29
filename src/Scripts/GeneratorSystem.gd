@@ -1,4 +1,6 @@
 extends Node3D
+## Generator system.
+## Made by Yni, licensed under MIT license.
 class_name GeneratorSystem
 
 enum ActivatedStatus {UNACTIVATED, ACTIVATING, ACTIVATED}
@@ -11,11 +13,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Activating timer.
 	if activated == ActivatedStatus.ACTIVATING:
 		if !$Timer.is_stopped():
 			$Display.text = "ACTIVATING...\n" + str(ceili($Timer.time_left)) + "\nSECONDS LEFT"
 
-
+## Activate generator, if Foundation class, inactivate if Chaos Insurgent.
 func _on_puppet_awaiter_body_entered(body: Node3D) -> void:
 	if body is MovableNpc:
 		if body.fraction == 0:
@@ -35,7 +38,7 @@ func _on_puppet_awaiter_body_entered(body: Node3D) -> void:
 					await get_tree().create_timer(2.0).timeout
 					body.get_node("PlayerModel").get_child(0).secondary_state = body.get_node("PlayerModel").get_child(0).SecondaryState.NONE
 					body.get_node("PlayerModel").get_child(0).active_generator = false
-
+## Activation Timeout
 func _on_timer_timeout() -> void:
 	$Display.text = "ACTIVATED"
 	activated = ActivatedStatus.ACTIVATED

@@ -1,5 +1,6 @@
 extends Control
-
+## Main Menu
+## Made by Yni, licensed under MIT license.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +41,7 @@ func _on_lore_pressed() -> void:
 func _on_lore_back_button_pressed() -> void:
 	$LorePanel.hide()
 
-func play(mapgen_seed: int = -1, enemy_type: int = -1, generator_amount: int = -1, chaos_amount: int = -1, spawn_neutral_npc: int = -1, additional_lives: int = -1, facility_id: int = -1):
+func play(mapgen_seed: int = -1, enemy_type: int = -1, generator_amount: int = -1, chaos_amount: int = -1, spawn_neutral_npc: int = -1, additional_lives: int = -1, facility_id: int = -1, time_left: float = 120.0):
 	var game: GameCore = load("res://Scenes/Game.tscn").instantiate()
 	if mapgen_seed >= 0:
 		game.map_seed = mapgen_seed
@@ -56,6 +57,7 @@ func play(mapgen_seed: int = -1, enemy_type: int = -1, generator_amount: int = -
 		game.additional_lives = additional_lives
 	if facility_id >= 0:
 		game.choosed_map = facility_id
+	game.time_amount = time_left
 	get_tree().root.add_child(game)
 	get_tree().current_scene = game
 	get_tree().root.get_node("Menu").queue_free()

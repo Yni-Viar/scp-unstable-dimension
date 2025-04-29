@@ -1,5 +1,6 @@
 extends StaticBody3D
-
+## Escape room.
+## Made by Yni, licensed under MIT license.
 
 
 func _on_puppet_awaiter_body_entered(body: Node3D) -> void:

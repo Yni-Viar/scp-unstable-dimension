@@ -1,5 +1,6 @@
 extends Control
-
+## Custom game.
+## Made by Yni, licensed under MIT license.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,6 @@ func _process(delta: float) -> void:
 
 func _on_play_custom_pressed() -> void:
 	if !$Seed.text.is_empty():
-		get_parent().play(hash($Seed.text), $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected)
+		get_parent().play(hash($Seed.text), $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected, $TimeAmount.value)
 	else:
-		get_parent().play(-1, $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected)
+		get_parent().play(-1, $EnemyType.selected, $GeneratorAmount.value, $ChaosAmount.value, int($SpawnNeutralNpcs.button_pressed), $AdditionalLives.value, $FacilityMap.selected, $TimeAmount.value)

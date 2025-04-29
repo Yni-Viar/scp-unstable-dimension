@@ -1,7 +1,12 @@
 extends HumanPuppetScript
+## Chaos Insurgent Trooper puppet
+## Created by Yni, licensed under dual license: for SCP content - GPL 3, for non-SCP - MIT License
 
+## If the player is near, attack
 var near_targets: bool = false
+## Follow player if see.
 var saw_player: bool = false
+## Attack timer
 var attack_update_timer: float = 2.0
 
 # Called when the node enters the scene tree for the first time.

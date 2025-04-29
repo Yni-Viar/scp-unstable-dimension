@@ -1,7 +1,7 @@
 extends Node3D
 
 
-
+## Add lore by selecting a bit.
 func _on_collect_area_body_entered(body: Node3D) -> void:
 	if body is MovableNpc:
 		var puppet_class = body.puppet_class

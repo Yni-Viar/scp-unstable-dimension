@@ -1,5 +1,6 @@
 extends Marker3D
-
+## Camera tracker (tracks on protagonist)
+## Made by Yni, licensed under MIT license.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
