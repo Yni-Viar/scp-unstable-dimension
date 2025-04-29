@@ -1,0 +1,7 @@
+keys,en,ru
+GAME_WIN,YOU WIN,Победа!
+GAME_OVER,YOU LOSE,Поражение!
+GAME_WIN_1,You have escaped from this place!,Вы сбежали отсюда!
+GAME_OVER_1,You were killed. What a pity...,Вас убили. Какая досада...
+GAME_OVER_2,Time's up! The exit is now closed...,Время вышло! Выход теперь закрыт...
+GAME_OVER_3,SCP-575 have eaten you up.\nA tip: Don't let Chaos Insurgents disable all generators\nand let power off. Darkness is not safe.,Вас съел SCP-575.\nПодсказка: Не давайте Повстанцам Хаоса отключать все генераторы\nи выключить свет. Тьма небезопасна.

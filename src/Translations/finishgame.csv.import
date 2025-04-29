@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dr42pf5xmd4n"
+
+[deps]
+
+files=["res://Translations/finishgame.en.translation", "res://Translations/finishgame.ru.translation"]
+
+source_file="res://Translations/finishgame.csv"
+dest_files=["res://Translations/finishgame.en.translation", "res://Translations/finishgame.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

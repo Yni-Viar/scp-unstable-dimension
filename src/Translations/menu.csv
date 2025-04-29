@@ -1,0 +1,17 @@
+keys,en,ru
+LORE_PIECES,Lore pieces,Часть сюжета
+CUSTOM_SEED,Map Generator seed,Зерно генератора карт
+CUSTOM_ENEMYTYPE_0,None,Нет
+CUSTOM_ENEMYTYPE_1,Chaos Insurgency,Повстанцы Хаоса
+CUSTOM_MAP_0,Underground facility,Подземный комплекс
+CUSTOM_MAP_1,Maintenance Tunnels,Туннели обслуживания
+CUSTOM_NEUTRAL_NPC,Guaranted neutral NPCs,Гарантированные нейтральные NPC
+CUSTOM_CI_AMOUNT,Chaos Insurgency amount,Количество Повстанцев Хаоса
+CUSTOM_ENEMYTYPE_LABEL,Enemy type,Враг
+CUSTOM_MAP_LABEL,Facility map,Карта
+CUSTOM_CI_AMOUNT_NOTE,"Note, that the second Chaos Insurgent\nis a Hacker, while the rest ones are\nTroopers.","Замечание: второй Повстанец Хаоса - \n Хакер, все остальные - \nСолдаты."
+CUSTOM_GEN_AMOUNT,Generator amount,Количество генераторов
+CUSTOM_TIME_AMOUNT,Time amount (lower is lesser),Количество времени
+CUSTOM_ALLYS,Additional allys,Дополнительные союзники
+PLAY,Play,Играть
+CREDITS,Credits,Титры

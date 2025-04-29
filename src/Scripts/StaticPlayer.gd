@@ -48,8 +48,10 @@ func _physics_process(delta: float) -> void:
 		interact("Point")
 	if !target_puppet_path.is_empty():
 		if get_node_or_null(target_puppet_path) == null:
-			get_tree().root.get_node("Game").finish_game(false)
+			get_tree().root.get_node("Game").finish_game(false, "GAME_OVER_1")
 		else:
+			if get_node(target_puppet_path).current_health[2] < get_node(target_puppet_path).health[2]:
+				$Head/Camera3D/MeshInstance3D.mesh.surface_get_material(0).set_shader_parameter("multiplier", get_node(target_puppet_path).health[2] / get_node(target_puppet_path).current_health[2])
 			get_tree().root.get_node("Game/UI/HealthBar").value = get_node(target_puppet_path).current_health[0]
 
 ## Used from Godot Docs
@@ -69,5 +71,5 @@ func interact(value: String) -> void:
 			var result: Dictionary = intersect()
 			if result.keys().size() > 0:
 				if get_node_or_null(target_puppet_path) == null:
-					get_tree().root.get_node("Game").finish_game(false)
+					get_tree().root.get_node("Game").finish_game(false, "GAME_OVER_1")
 				get_node(target_puppet_path).set_target_position(result["position"], true)

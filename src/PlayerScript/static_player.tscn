@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://by5c7g15ljuta"]
+[gd_scene load_steps=6 format=3 uid="uid://by5c7g15ljuta"]
 
 [ext_resource type="Script" uid="uid://coqykxns1k055" path="res://Scripts/StaticPlayer.gd" id="1_cfg1l"]
+[ext_resource type="Shader" uid="uid://d24wera2yb2tv" path="res://Shaders/Tint3DShader/tint.gdshader" id="2_1a04n"]
+[ext_resource type="Texture2D" uid="uid://cr0oagcm5dgan" path="res://Assets/HUD/cold_overlay.png" id="3_j77eh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j77eh"]
+render_priority = 0
+shader = ExtResource("2_1a04n")
+shader_parameter/overlay = ExtResource("3_j77eh")
+shader_parameter/multiplier = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_cfg1l"]
+material = SubResource("ShaderMaterial_j77eh")
+size = Vector2(2, 2)
 
 [node name="StaticPlayer" type="Node3D"]
 script = ExtResource("1_cfg1l")
@@ -10,3 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.820679, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.055)
+mesh = SubResource("QuadMesh_cfg1l")

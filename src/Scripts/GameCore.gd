@@ -44,8 +44,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !$GameOverTimer.is_stopped():
-		$UI/Tasks/TimeToLeft.text = "SECONDS LEFT: " + str(ceili($GameOverTimer.time_left))
-		$UI/Tasks/GeneratorsToActivate.text = "GENERATORS LEFT: " + str(activated_generators)
+		$UI/Tasks/TimeToLeft.text = tr("SECOND_LEFT") + str(ceili($GameOverTimer.time_left))
+		$UI/Tasks/GeneratorsToActivate.text = tr("GENERATOR_LEFT") + str(activated_generators)
 		if ceili($GameOverTimer.time_left) == 110 && !enemy_spawned && enemy_type != 0:
 			spawn_enemies()
 			enemy_spawned = true
@@ -121,12 +121,13 @@ func spawn_enemy_entity():
 				node.queue_free()
 
 ## Game end
-func finish_game(good_end: bool):
-	$UI/Condition/ConditionLabel.text = "YOU WIN" if good_end else "YOU LOSE"
+func finish_game(good_end: bool, reason: String):
+	$UI/Condition/ConditionLabel.text = "GAME_WIN" if good_end else "GAME_OVER"
 	$UI/Condition.show()
+	$UI/Condition/ReasonLabel.text = reason
 	$GameOverTimer.stop()
 	Settings.set_pause_subtree(true)
 
 
 func _on_game_over_timer_timeout() -> void:
-	finish_game(false)
+	finish_game(false, "GAME_OVER_2")

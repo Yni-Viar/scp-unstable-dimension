@@ -68,6 +68,10 @@ click={
 
 pointing/android/enable_pan_and_scale_gestures=true
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translations/menu.en.translation", "res://Translations/menu.ru.translation", "res://Translations/game.en.translation", "res://Translations/game.ru.translation", "res://Translations/finishgame.en.translation", "res://Translations/finishgame.ru.translation")
+
 [physics]
 
 common/physics_ticks_per_second=30

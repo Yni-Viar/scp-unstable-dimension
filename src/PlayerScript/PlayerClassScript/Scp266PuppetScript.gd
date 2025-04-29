@@ -29,9 +29,11 @@ func scp_262_heateater(delta: float):
 					if heat_targets[i].puppet_class.fraction == 0 || heat_targets[i].puppet_class.fraction == 3:
 						if heat_targets[i].current_health[0] - 10 < 0:
 							heat_targets[i].health_manage(-10)
+							heat_targets[i].health_manage(-5, 2)
 							heat_targets.remove_at(i)
 							return
-						heat_targets[i].health_manage(-10)
+						heat_targets[i].health_manage(-10) #deplete health
+						heat_targets[i].health_manage(-5, 2) #deplete warmth
 			get_parent().get_parent().follow_target = heat_targets[0].get_path()
 		timer = 2.5
 

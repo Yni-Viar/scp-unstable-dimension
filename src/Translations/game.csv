@@ -1,0 +1,8 @@
+keys,en,ru
+SECOND_LEFT,SECONDS LEFT: ,Осталось секунд: 
+GENERATOR_LEFT,GENERATORS LEFT: ,Осталось генераторов: 
+GEN_STATE_1,UNINITIALIZED,Не запущен.
+GEN_STATE_1e,ERROR!!!,ОШИБКА!!!
+GEN_STATE_2a,ACTIVATING...\n,Запуск через\n
+GEN_STATE_2b,\nSECONDS LEFT,\nсекунд
+GEN_STATE_3,ACTIVATED,Запущен

@@ -89,7 +89,7 @@ func _ready() -> void:
 	wandering = puppet_class.enable_wander
 	spawn_on_start = puppet_class.spawn_on_start
 	_nav_agent.avoidance_enabled = puppet_class.enable_avoidance
-	current_health = health
+	current_health = health.duplicate()
 	wandering_rotator = rng.randi_range(-15, 15)
 	$PlayerModel.add_child(puppet_mesh)
 	
