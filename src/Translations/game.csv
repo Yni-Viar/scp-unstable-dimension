@@ -6,3 +6,4 @@ GEN_STATE_1e,ERROR!!!,ОШИБКА!!!
 GEN_STATE_2a,ACTIVATING...\n,Запуск через\n
 GEN_STATE_2b,\nSECONDS LEFT,\nсекунд
 GEN_STATE_3,ACTIVATED,Запущен
+BACK_TO_MENU,Back to menu,Вернуться в меню

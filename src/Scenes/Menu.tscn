@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b25hrjnoos5me"]
 
 [ext_resource type="Script" uid="uid://nuv64h1g048i" path="res://Scripts/MainMenu.gd" id="1_3kf3n"]
-[ext_resource type="Texture2D" uid="uid://bwhjtd63gepeh" path="res://UI/MainMenu/mainmenuwallpaper.png" id="2_ma218"]
+[ext_resource type="Texture2D" uid="uid://calm8y36ivn5q" path="res://UI/MainMenu/mainmenubackground.png" id="2_ab40c"]
 [ext_resource type="Theme" uid="uid://1c7qxp1dlx5i" path="res://UITheme.tres" id="2_syfuq"]
 [ext_resource type="Texture2D" uid="uid://cl0fdkqxf4660" path="res://UI/playbutton.png" id="4_idohh"]
 [ext_resource type="FontFile" uid="uid://c5notad62nmgy" path="res://Assets/Fonts/SansNormalcy/Normalcy-v0.1.7.otf" id="5_idohh"]
@@ -27,16 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ma218")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.627451)
+texture = ExtResource("2_ab40c")
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 1

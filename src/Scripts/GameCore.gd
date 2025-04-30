@@ -46,13 +46,14 @@ func _process(delta: float) -> void:
 	if !$GameOverTimer.is_stopped():
 		$UI/Tasks/TimeToLeft.text = tr("SECOND_LEFT") + str(ceili($GameOverTimer.time_left))
 		$UI/Tasks/GeneratorsToActivate.text = tr("GENERATOR_LEFT") + str(activated_generators)
-		if ceili($GameOverTimer.time_left) == 110 && !enemy_spawned && enemy_type != 0:
-			spawn_enemies()
-			enemy_spawned = true
 
 
 func _on_facility_generator_generated() -> void:
 	spawn_puppets()
+	await get_tree().create_timer(10.0).timeout
+	if !enemy_spawned && enemy_type != 0:
+		spawn_enemies()
+		enemy_spawned = true
 
 func spawn_puppets():
 	# Player and allies

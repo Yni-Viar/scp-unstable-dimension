@@ -7,7 +7,7 @@ var enable: bool = true:
 		enabling = true
 ## Is it currently enabling (needed for handling power off transition)
 var enabling: bool = false
-## Check for sawe value. If chaos insurgent is passing by, don't activate power off immediately.
+## Check for safe value. If chaos insurgent is passing by, don't activate power off immediately.
 var hold_on: bool = false
 ## Safe value. If chaos insurgent is passing by, don't activate power off immediately.
 var amount: float = 0.0
@@ -33,7 +33,7 @@ func inactivate():
 	$AnimationPlayer.play("enable")
 	enable = false
 	await get_tree().create_timer(2.0).timeout
-	get_tree().root.get_node("Game").finish_game(false)
+	get_tree().root.get_node("Game").finish_game(false, "GAME_OVER_3")
 
 #func activate():
 	#$Cylinder.mesh.surface_set_material(0, load("res://Assets/Materials/ActivatedLever.tres"))
@@ -42,12 +42,12 @@ func inactivate():
 
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body is MovableNpc:
-		if body.fraction == 3:
+		if body.fraction == 3 && body.puppet_class.puppet_class_name == "CHAOS_HACKER":
 			hold_on = true
 
 
 func _on_detect_area_body_exited(body: Node3D) -> void:
 	if body is MovableNpc:
-		if body.fraction == 3:
+		if body.fraction == 3 && body.puppet_class.puppet_class_name == "CHAOS_HACKER":
 			hold_on = false
 			amount = 0.0

@@ -106,7 +106,7 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_05vk2"]
 height = 2.9021
-radius = 1.33691
+radius = 1.5
 
 [node name="Lever" type="Node3D" groups=["DisableLevers"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -132,7 +132,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328217, -0.00354004, -1.43468e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410092, -0.00354004, -1.79257e-08)
 shape = SubResource("CylinderShape3D_05vk2")
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
