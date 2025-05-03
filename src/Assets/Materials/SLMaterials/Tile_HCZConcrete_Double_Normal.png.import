@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ow8bjpllkim"
+uid="uid://dh74dyjdpq2s8"
 path.s3tc="res://.godot/imported/Tile_HCZConcrete_Double_Normal.png-5de5eaeca65a4876a85dbbe069f0162b.s3tc.ctex"
 path.etc2="res://.godot/imported/Tile_HCZConcrete_Double_Normal.png-5de5eaeca65a4876a85dbbe069f0162b.etc2.ctex"
 metadata={
@@ -26,11 +26,11 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Assets/Materials/Tile_HCZConcrete_Double_Normal.png"
+roughness/src_normal="res://Assets/Materials/SLMaterials/Tile_HCZConcrete_Double_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=512
+process/size_limit=0
 detect_3d/compress_to=0

@@ -1,11 +1,11 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://vg6s0ft4srsj"]
 
-[ext_resource type="Texture2D" uid="uid://cnh5gfcjgck5c" path="res://Assets/Materials/SLMaterials/Tile_HCZGround_Albedo.png" id="1_mswjl"]
-[ext_resource type="Texture2D" uid="uid://dk6mhid821bnn" path="res://Assets/Materials/SLMaterials/Tile_HCZCGround_Normal.png" id="2_cw64w"]
+[ext_resource type="Texture2D" uid="uid://6cu55rwudgtq" path="res://Assets/Materials/SLMaterials/Wall_Albedo.png" id="1_7y254"]
+[ext_resource type="Texture2D" uid="uid://b3w6fh7pgc0cu" path="res://Assets/Materials/SLMaterials/Wall_Normal.png" id="2_lr80o"]
 
 [resource]
 resource_name = "Ceiling"
-albedo_texture = ExtResource("1_mswjl")
+albedo_texture = ExtResource("1_7y254")
 roughness = 0.5
 normal_enabled = true
-normal_texture = ExtResource("2_cw64w")
+normal_texture = ExtResource("2_lr80o")
