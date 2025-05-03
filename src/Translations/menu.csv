@@ -5,7 +5,7 @@ CUSTOM_ENEMYTYPE_0,None,Нет
 CUSTOM_ENEMYTYPE_1,Chaos Insurgency,Повстанцы Хаоса
 CUSTOM_MAP_0,Underground facility,Подземный комплекс
 CUSTOM_MAP_1,Maintenance Tunnels,Туннели обслуживания
-CUSTOM_NEUTRAL_NPC,Guaranted neutral NPCs,Гарантированные нейтральные NPC
+CUSTOM_NEUTRAL_NPC,Neutral NPCs,Нейтральные NPC
 CUSTOM_CI_AMOUNT,Chaos Insurgency amount,Количество Повстанцев Хаоса
 CUSTOM_ENEMYTYPE_LABEL,Enemy type,Враг
 CUSTOM_MAP_LABEL,Facility map,Карта
@@ -15,3 +15,7 @@ CUSTOM_TIME_AMOUNT,Time amount (lower is lesser),Количество време
 CUSTOM_ALLYS,Additional allys,Дополнительные союзники
 PLAY,Play,Играть
 CREDITS,Credits,Титры
+TIPS,Tips,Советы
+LORE,Lore pieces,Кусочки сюжета
+TIP_WHITE_COLOR,"White color bordered item - it is a\ngenerator - you need to\nactivate it., by coming\ncloser.","Предмет, окруженный белой рамкой - \nэто генератор. Вам нужно\nактивировать его (просто подойдите\nк нему)."
+TIP_BLUE_COLOR,Blue color bordered item - it is a\ngood item - you need to come\ncloser to receive it's effect\n(such as healing),"Предмет, окруженный голубой рамкой - \nэто полезный предмет. Подойдите\nпоближе, для того, чтобы\nполучить эффект (например, лечение)."

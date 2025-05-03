@@ -1,5 +1,5 @@
 extends Node3D
-
+## Created by Yni, licensed under dual license: for SCP content - GPL 3, for non-SCP - MIT License
 
 ## Add lore by selecting a bit.
 func _on_collect_area_body_entered(body: Node3D) -> void:

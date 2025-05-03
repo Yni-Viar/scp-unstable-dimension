@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://uop5xtgqrife"]
+[gd_scene load_steps=17 format=4 uid="uid://uop5xtgqrife"]
 
 [ext_resource type="PackedScene" uid="uid://d2lho474tfbe4" path="res://Assets/OriginalModels/table.tscn" id="1_r01sq"]
 [ext_resource type="Material" uid="uid://bx6svntie8yke" path="res://Assets/Materials/EvacuationShelter/Walls.tres" id="2_gpu3s"]
@@ -6,7 +6,8 @@
 [ext_resource type="Material" uid="uid://cghjsdm6328ko" path="res://Assets/Materials/EvacuationShelter/Floor.tres" id="4_k36db"]
 [ext_resource type="Material" uid="uid://cn06h7ro4lomm" path="res://Assets/Materials/EvacuationShelter/Redux/Ventilation.tres" id="5_r8pha"]
 [ext_resource type="Material" uid="uid://emi0dvvkx1lb" path="res://Assets/Materials/EvacuationShelter/Redux/Ventilation_Wall.tres" id="6_l3lqv"]
-[ext_resource type="Script" uid="uid://dxacesn4a1lyf" path="res://Scripts/DocSpawner.gd" id="7_es5jq"]
+[ext_resource type="Script" uid="uid://dxacesn4a1lyf" path="res://Scripts/ItemSpawner.gd" id="7_es5jq"]
+[ext_resource type="PackedScene" uid="uid://d0ot1af7632t" path="res://Assets/OriginalModels/doc.tscn" id="8_gpu3s"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_shvc4"]
 vertices = PackedVector3Array(-9.2905, -0.769568, 2.7414, -5.0405, -0.769568, 2.9914, -5.0405, -0.769568, 1.4914, -4.2905, -0.769568, 1.2414, -4.2905, -0.769568, -6.7586, -9.2905, -0.769568, -9.5086, 0.9595, -0.769568, -6.7586, 0.9595, -0.769568, -9.7586, 3.2095, -0.769568, -6.5086, 9.4595, -0.769568, -9.5086, 3.2095, -0.769568, 1.2414, 3.7095, -0.769568, 1.2414, 9.4595, -0.769568, 0.9914, -3.2905, 1.23043, 1.9914, -4.0405, 1.23043, 2.2414, -4.0405, 1.23043, 4.4914, 3.2095, 1.23043, 4.4914, 3.2095, 1.23043, 2.2414, 2.2095, 1.23043, 1.9914, 2.2095, 1.23043, -5.7586, -3.2905, 1.23043, -6.0086, 4.2095, -0.769568, 5.2414, 2.9595, -0.769568, 5.4914, 3.9595, -0.769568, 9.4914, 4.2095, -0.769568, 1.4914, 9.4595, -0.769568, 9.4914, -4.5405, -0.769568, 9.4914, -4.5405, -0.769568, 5.4914, -5.0405, -0.769568, 5.2414, -9.2905, -0.769568, 9.4914)
@@ -682,6 +683,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.768606, -10.2136)
 start_position = Vector3(0, 0, 1)
 end_position = Vector3(0, 0, -1)
 
-[node name="DocSpawn" type="Marker3D" parent="."]
+[node name="DocSpawn2" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0966, 3.44676)
 script = ExtResource("7_es5jq")
+item = ExtResource("8_gpu3s")
+
+[node name="Scp109Spawn" type="Marker3D" parent="." groups=["SingleItemSpawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65843, 1.0966, 0.909184)

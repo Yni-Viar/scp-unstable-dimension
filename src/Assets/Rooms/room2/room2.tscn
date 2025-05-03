@@ -129,3 +129,6 @@ end_position = Vector3(0, 0, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.768606, -10.2136)
 start_position = Vector3(0, 0, 1)
 end_position = Vector3(0, 0, -1)
+
+[node name="Scp109Spawn" type="Marker3D" parent="." groups=["SingleItemSpawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8538, 1.0966, 0.68292)

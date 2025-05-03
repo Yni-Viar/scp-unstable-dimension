@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b25hrjnoos5me"]
+[gd_scene load_steps=10 format=3 uid="uid://b25hrjnoos5me"]
 
 [ext_resource type="Script" uid="uid://nuv64h1g048i" path="res://Scripts/MainMenu.gd" id="1_3kf3n"]
 [ext_resource type="Texture2D" uid="uid://calm8y36ivn5q" path="res://UI/MainMenu/mainmenubackground.png" id="2_ab40c"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b4x7oa8dlypky" path="res://UI/lorebutton.png" id="5_wfhf6"]
 [ext_resource type="Texture2D" uid="uid://d3ufwoaxsmldg" path="res://UI/customplaybutton.png" id="6_ab40c"]
 [ext_resource type="Texture2D" uid="uid://baspe0tu45lrg" path="res://UI/back_button.png" id="7_3jcrr"]
-[ext_resource type="FontFile" uid="uid://l7x872d5amx8" path="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="8_aobxe"]
 [ext_resource type="Script" uid="uid://djtevkjibxudq" path="res://Scripts/CustomGamePanel.gd" id="9_aobxe"]
 
 [node name="Menu" type="Control"]
@@ -169,7 +168,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LorePanel" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -192,21 +190,39 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("7_3jcrr")
 
-[node name="Label" type="Label" parent="LorePanel"]
+[node name="LoreLabel" type="Label" parent="LorePanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.361
 anchor_top = 0.049
-anchor_right = 0.5
+anchor_right = 0.361
 anchor_bottom = 0.049
-offset_left = -448.0
+offset_left = -287.872
 offset_top = -31.752
-offset_right = 448.0
+offset_right = 288.128
 offset_bottom = 32.248
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("8_aobxe")
+theme_override_fonts/font = ExtResource("5_idohh")
 theme_override_font_sizes/font_size = 48
-text = "Lore pieces"
+text = "LORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelpLabel" type="Label" parent="LorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.049
+anchor_right = 0.84
+anchor_bottom = 0.049
+offset_left = -103.68
+offset_top = -31.752
+offset_right = 104.32
+offset_bottom = 32.248
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_idohh")
+theme_override_font_sizes/font_size = 48
+text = "TIPS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -214,9 +230,10 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.198
-anchor_right = 1.0
+anchor_right = 0.667
 anchor_bottom = 1.0
-offset_top = -0.304016
+offset_top = -0.304031
+offset_right = -0.384033
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_syfuq")
@@ -315,6 +332,55 @@ anchor_bottom = 1.0
 offset_top = -4.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="VSeparator" type="VSeparator" parent="LorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_top = 0.494
+anchor_right = 0.67
+anchor_bottom = 0.494
+offset_left = -3.84003
+offset_top = -320.112
+offset_right = 4.15997
+offset_bottom = 327.888
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="LorePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = -252.0
+offset_right = -16.0
+offset_bottom = 308.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Generators" type="HBoxContainer" parent="LorePanel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="LorePanel/VBoxContainer2/Generators"]
+custom_minimum_size = Vector2(24.33, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LorePanel/VBoxContainer2/Generators"]
+layout_mode = 2
+text = "TIP_WHITE_COLOR"
+
+[node name="GoodItems" type="HBoxContainer" parent="LorePanel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="LorePanel/VBoxContainer2/GoodItems"]
+custom_minimum_size = Vector2(24.33, 0)
+layout_mode = 2
+color = Color(0.239216, 0.682353, 0.835294, 1)
+
+[node name="Label" type="Label" parent="LorePanel/VBoxContainer2/GoodItems"]
+layout_mode = 2
+text = "TIP_BLUE_COLOR"
 
 [node name="CustomGamePanel" type="Control" parent="."]
 visible = false

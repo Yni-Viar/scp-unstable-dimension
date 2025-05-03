@@ -11,3 +11,5 @@ class_name GameData
 @export var enemy_puppet_class: Array[PuppetClass]
 ## Neutral puppet class
 @export var neutral_puppet_class: Array[PuppetClass]
+## Single items.
+@export var single_items_prefab: Array[PackedScene]

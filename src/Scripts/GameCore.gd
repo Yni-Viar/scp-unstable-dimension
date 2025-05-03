@@ -81,11 +81,22 @@ func spawn_puppets():
 	all_generators = activated_generators
 	# Neutral puppets
 	if gamedata.neutral_puppet_class.size() > 0:
-		var neutral_puppet_rand: int = rng.randi_range(-1, gamedata.neutral_puppet_class.size() - 1) if spawn_neutral_npcs < 0 else rng.randi_range(0, gamedata.neutral_puppet_class.size() - 1)
+		var neutral_puppet_rand: int
+		if spawn_neutral_npcs < 0: #randomize possibility of spawn of neutral NPC
+			neutral_puppet_rand = rng.randi_range(-1, gamedata.neutral_puppet_class.size() - 1)
+		else: # if not randomized, check if it is enabled or disabled
+			neutral_puppet_rand = rng.randi_range(0, gamedata.neutral_puppet_class.size() - 1) if spawn_neutral_npcs > 0 else -1
 		if neutral_puppet_rand != -1:
 			var npc: MovableNpc = load("res://PlayerScript/NPCBase.tscn").instantiate()
 			npc.puppet_class = gamedata.neutral_puppet_class[neutral_puppet_rand]
 			get_tree().get_first_node_in_group("NeutralEntitySpawn").add_child(npc)
+	# Single items
+	for i in range(gamedata.single_items_prefab.size()):
+		if i < get_tree().get_node_count_in_group("SingleItemSpawn"):
+			var item: Node = gamedata.single_items_prefab[i].instantiate()
+			get_tree().get_nodes_in_group("SingleItemSpawn")[i].add_child(item)
+		else:
+			break
 
 ## Enemy spawner
 func spawn_enemies():
