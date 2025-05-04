@@ -32,7 +32,7 @@ class_name MovableNpc
 @export var fraction: int
 @export var health: Array[float] = []
 @export var current_health: Array[float] = []
-
+@export var movement_freeze: bool = false
 
 ## The main wandering switch
 @export var wandering: bool = false:
@@ -73,6 +73,7 @@ var prev_offset: PackedVector3Array = [Vector3.ONE, Vector3.ONE]
 var height_bugfix_applied: bool = false
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var spawn_on_start: bool = true
+
 
 var puppet_mesh: BasePuppetScript
 
@@ -128,7 +129,6 @@ func _physics_process(delta: float) -> void:
 					idle = true
 		return
 	
-		
 	
 	var next_position := _nav_agent.get_next_path_position()
 	var offset := next_position - global_position

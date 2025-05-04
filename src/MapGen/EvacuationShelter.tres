@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d0tlgr0c6w7gq" path="res://MapGen/MapGenZone.gd" id="1_mti3u"]
 [ext_resource type="Script" uid="uid://b15b7mhits7ot" path="res://MapGen/MapGenRoom.gd" id="1_obfoh"]
-[ext_resource type="Resource" uid="uid://dkax2pgmsnpbr" path="res://MapGen/Resources/EvacuationShelter/room2C.tres" id="2_uprox"]
+[ext_resource type="Resource" uid="uid://dkax2pgmsnpbr" path="res://MapGen/Resources/EvacuationShelter/cont2C_162.tres" id="2_uprox"]
 [ext_resource type="Resource" uid="uid://tgxe2303s02g" path="res://MapGen/Resources/EvacuationShelter/room2C_redux.tres" id="3_hiyka"]
+[ext_resource type="Resource" uid="uid://bvl3bt5m4h1em" path="res://MapGen/Resources/EvacuationShelter/room2C.tres" id="3_o24mr"]
 [ext_resource type="Resource" uid="uid://defw3e0yk60rh" path="res://MapGen/Resources/EvacuationShelter/room4.tres" id="4_7ex6p"]
 [ext_resource type="Resource" uid="uid://dto18wf3e4ol4" path="res://MapGen/Resources/EvacuationShelter/room1.tres" id="5_nfbtj"]
 [ext_resource type="Resource" uid="uid://cwn3flxx1e8ho" path="res://MapGen/Resources/EvacuationShelter/room1_playerspawn.tres" id="6_nknuh"]
@@ -16,7 +17,6 @@
 [ext_resource type="Resource" uid="uid://bx5nj144uqlqs" path="res://MapGen/Resources/EvacuationShelter/room3.tres" id="11_bo67y"]
 [ext_resource type="Resource" uid="uid://dyq6octeegrb5" path="res://MapGen/Resources/EvacuationShelter/room2_maze.tres" id="11_fekca"]
 [ext_resource type="Resource" uid="uid://cj2b1umpj5xep" path="res://MapGen/Resources/EvacuationShelter/room2_maze2.tres" id="12_1woyu"]
-[ext_resource type="Resource" uid="uid://kwt5scl0pxqj" path="res://MapGen/Resources/EvacuationShelter/room3_large.tres" id="12_klbj0"]
 [ext_resource type="Resource" uid="uid://b5iorkkrwdl3m" path="res://MapGen/Resources/EvacuationShelter/room2_walkway_redux.tres" id="13_lfodh"]
 [ext_resource type="Resource" uid="uid://cgh78us53op5w" path="res://MapGen/Resources/EvacuationShelter/room2_redux.tres" id="14_kly6t"]
 [ext_resource type="Resource" uid="uid://clxj5wm4henr0" path="res://MapGen/Resources/EvacuationShelter/room3_redux.tres" id="19_03qgs"]
@@ -30,11 +30,11 @@ hallways = Array[ExtResource("1_obfoh")]([ExtResource("7_mgmv3"), ExtResource("8
 hallways_single = Array[ExtResource("1_obfoh")]([ExtResource("11_fekca"), ExtResource("12_1woyu")])
 checkpoint_hallway = Array[ExtResource("1_obfoh")]([])
 hallways_single_large = Array[ExtResource("1_obfoh")]([])
-corners = Array[ExtResource("1_obfoh")]([ExtResource("2_uprox"), ExtResource("3_hiyka")])
-corners_single = Array[ExtResource("1_obfoh")]([])
+corners = Array[ExtResource("1_obfoh")]([ExtResource("3_hiyka"), ExtResource("3_o24mr")])
+corners_single = Array[ExtResource("1_obfoh")]([ExtResource("2_uprox")])
 corners_single_large = Array[ExtResource("1_obfoh")]([])
 trooms = Array[ExtResource("1_obfoh")]([ExtResource("11_bo67y"), ExtResource("19_03qgs")])
-trooms_single = Array[ExtResource("1_obfoh")]([ExtResource("12_klbj0")])
+trooms_single = Array[ExtResource("1_obfoh")]([])
 trooms_single_large = Array[ExtResource("1_obfoh")]([])
 crossrooms = Array[ExtResource("1_obfoh")]([ExtResource("4_7ex6p")])
 crossrooms_single = Array[ExtResource("1_obfoh")]([])

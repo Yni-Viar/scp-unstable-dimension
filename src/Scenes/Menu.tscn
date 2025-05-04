@@ -117,9 +117,10 @@ used from PolyHaven (All models on this
 website are CC0)
 ------------------------
 Mentioned SCP objects:
+SCP-162 by Dr Gears
 SCP-266 by Dr Kondraki
 SCP-650 by Dr Talson
-(CC-BY-SA 3.0)"
+(Licensed under CC-BY-SA 3.0)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -168,6 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LorePanel" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -324,6 +326,23 @@ Researcher Jim: Don't panic, it should disappear if we both close our eyes.
 Researcher Jim: But why is it there?... it is an interesting question..."
 
 [node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece5"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LorePiece6" type="Label" parent="LorePanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Junior Researcher Jane: I think there is SCP-162... Don't look at it.
+Agent John: I just want to hug it...
+Agent John: Take my hand and let's go away. It is SCP-162!"
+
+[node name="HSeparator" type="HSeparator" parent="LorePanel/ScrollContainer/VBoxContainer/LorePiece6"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

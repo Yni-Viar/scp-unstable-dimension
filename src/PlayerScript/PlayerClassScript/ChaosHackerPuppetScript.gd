@@ -29,8 +29,10 @@ func check_generator():
 				if node.get_child(0) is GeneratorSystem:
 					if node.get_child(0).activated == node.get_child(0).ActivatedStatus.ACTIVATED:
 						get_parent().get_parent().wandering = false
-						get_parent().get_parent().follow_target = node.get_path()
+						if !get_parent().get_parent().movement_freeze:
+							get_parent().get_parent().follow_target = node.get_path()
 						active_generator = true
 	elif get_tree().root.get_node("Game").activated_generators == get_tree().root.get_node("Game").all_generators && get_parent().get_parent().wandering == false:
 		if get_tree().get_node_count_in_group("DisableLevers") > 0:
-			get_parent().get_parent().follow_target = get_tree().get_first_node_in_group("DisableLevers").get_path()
+			if !get_parent().get_parent().movement_freeze:
+				get_parent().get_parent().follow_target = get_tree().get_first_node_in_group("DisableLevers").get_path()

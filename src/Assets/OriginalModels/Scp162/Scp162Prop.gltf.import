@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctqpih3lthngt"
-path="res://.godot/imported/room1_largehub.gltf-b8129258c13b8f7d1ef7337b028c0a6d.scn"
+uid="uid://dg0dna7xnbido"
+path="res://.godot/imported/Scp162Prop.gltf-719fb56f29c11bea8283b5a44d34ad20.scn"
 
 [deps]
 
-source_file="res://Assets/RoomAssets/MaintenanceTunnels/room1_largehub.gltf"
-dest_files=["res://.godot/imported/room1_largehub.gltf-b8129258c13b8f7d1ef7337b028c0a6d.scn"]
+source_file="res://Assets/OriginalModels/Scp162/Scp162Prop.gltf"
+dest_files=["res://.godot/imported/Scp162Prop.gltf-719fb56f29c11bea8283b5a44d34ad20.scn"]
 
 [params]
 

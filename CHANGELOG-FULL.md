@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.7.0
+
+- Change room style - Underground facility now using SCP: Site Online Light Containment Zone assets, and Maintenance Tunnels are using SCP: Secret Lab 14.0 Have Containment Zone textures
+- Added new hazard in Underground Facility - SCP-162. Don't come close to it...
+- Added SCP-109 (used as healing aid (through it won't save from SCP-266))
+- Added gameplay Tips (under Lore menu)
+
+## v1.6.2
+
+- Added missing copyright
+
+## v1.6.1
+
+- Reduced size of new room, because of unwanted missclick possibility
+
+## v1.6.0
+
+- Added hazard in Maintenance tunnels map (If Chaos Hacker will turn off all generators, then it will turn off the power, which lead to gameover.).
+- Added cold overlay to SCP-266
+- Changed cringe background to normal one.
+- Fix enemy spawn only when time left = 110 (a leftover)
+- Support translations.
+
 ## v1.5.1
 
 - Fix various typos and mistakes in the lore + add 5th note.

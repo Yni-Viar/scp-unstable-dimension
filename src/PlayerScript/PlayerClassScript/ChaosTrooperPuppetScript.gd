@@ -26,9 +26,8 @@ func on_update_human(delta: float):
 				#if collider.get_node("PlayerModel").get_child(0).get_node_or_null("Tracker") != null:
 				saw_player = true
 				get_parent().get_parent().wandering = false
-				get_parent().get_parent().follow_target = collider.get_path()
-					
-					
+				if !get_parent().get_parent().movement_freeze:
+					get_parent().get_parent().follow_target = collider.get_path()
 
 
 func _on_attack_radius_body_entered(body: Node3D) -> void:
@@ -42,12 +41,13 @@ func _on_attack_radius_body_entered(body: Node3D) -> void:
 				saw_player = true
 				near_targets = true
 				get_parent().get_parent().wandering = false
-				get_parent().get_parent().follow_target = body.get_path()
+				if !get_parent().get_parent().movement_freeze:
+					get_parent().get_parent().follow_target = body.get_path()
 
 
 func _on_attack_radius_body_exited(body: Node3D) -> void:
 	if body is MovableNpc:
-		if str(body.get_path()) == get_parent().get_parent().follow_target:
+		if str(body.get_path()) == get_parent().get_parent().follow_target || get_parent().get_parent().movement_freeze:
 			near_targets = false
 
 func attack():

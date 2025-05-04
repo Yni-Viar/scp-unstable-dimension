@@ -23,23 +23,30 @@ func scp_262_heateater(delta: float):
 	else:
 		if heat_targets.size() > 0:
 			get_parent().get_parent().wandering = false
-			for i in range(heat_targets.size()):
-				if heat_targets[i] is MovableNpc:
-					# Only humans will freeze
-					if heat_targets[i].puppet_class.fraction == 0 || heat_targets[i].puppet_class.fraction == 3:
-						if heat_targets[i].current_health[0] - 10 < 0:
-							heat_targets[i].health_manage(-10)
-							heat_targets[i].health_manage(-5, 2)
-							heat_targets.remove_at(i)
-							return
-						heat_targets[i].health_manage(-10) #deplete health
-						heat_targets[i].health_manage(-5, 2) #deplete warmth
+			var counter: int = 0
+			for heat in heat_targets:
+				if is_instance_valid(heat):
+					if heat is MovableNpc:
+						# Only humans will freeze
+						if heat.puppet_class.fraction != 1 && heat.puppet_class.fraction != 2:
+							if heat.current_health[2] - 5 < 0:
+								heat.health_manage(-100)
+								heat.health_manage(-5, 2)
+								heat_targets.erase(heat)
+								return
+							else:
+								heat.health_manage(-25 * (heat.health[2] - heat.current_health[2]) / heat.health[2]) #deplete health
+								heat.health_manage(-5, 2) #deplete warmth
+				else:
+					heat_targets.remove_at(counter)
+				counter += 1
 			get_parent().get_parent().follow_target = heat_targets[0].get_path()
+			counter = 0
 		timer = 2.5
 
 func _on_warm_detector_body_entered(body: Node3D) -> void:
 	if body is MovableNpc:
-		if body.puppet_class.fraction == 0 || body.puppet_class.fraction == 3:
+		if body.puppet_class.fraction != 1 && body.puppet_class.fraction != 2:
 			heat_targets.append(body)
 
 
