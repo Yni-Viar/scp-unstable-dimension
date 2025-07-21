@@ -1,5 +1,7 @@
 # SCP: Unstable Dimension
 
+## ⚠️ DEPRECATED. Replaced with SCP: Containment Procedures.
+
 You need to escape from this facility-like structure by enabling generators. But the Chaos won't let you go so easily...
 
 ## License:
